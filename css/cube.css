@@ -1,0 +1,205 @@
+#darkSheet_00{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-perspective: 1500px;
+            perspective: 1500px;
+    -webkit-perspective-origin: center center;
+            perspective-origin: center center;
+    height: 200px;
+    width: 200px;
+    
+    -webkit-transform-origin: center;
+    
+        -ms-transform-origin: center;
+    
+            transform-origin: center;
+    -webkit-transform: translate(80px, 50px) rotateZ(45deg);
+        -ms-transform: translate(80px, 50px) rotate(45deg);
+            transform: translate(80px, 50px) rotateZ(45deg);
+    
+    display: none;
+    z-index: 9998;
+}
+
+#figure{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.Front{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    background: black;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+    border: 1px solid black;
+    opacity: 50%;
+    -webkit-animation: hideBNTS 1s linear alternate infinite;
+            animation: hideBNTS 1s linear alternate infinite;
+    text-align: center;
+}
+.Any_p{
+    padding-top: 1rem;
+}
+.Left{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    background: black;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-transform: translateX(-50px) rotateY(-90deg);
+            transform: translateX(-50px) rotateY(-90deg);
+    border: 1px solid black;
+    opacity: 50%;
+    -webkit-animation: hideBNTS 1s linear alternate infinite;
+            animation: hideBNTS 1s linear alternate infinite;
+    text-align: center;
+}
+
+.Right{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    background: black;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-transform: translateX(50px) rotateY(90deg);
+            transform: translateX(50px) rotateY(90deg);
+    border: 1px solid black;
+    opacity: 50%;
+    -webkit-animation: hideBNTS 1s linear alternate infinite;
+            animation: hideBNTS 1s linear alternate infinite;
+    text-align: center;
+}
+
+.Back{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    background: black;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-transform: translateZ(-50px) rotateY(180deg);
+            transform: translateZ(-50px) rotateY(180deg);
+    border: 1px solid black;
+    opacity: 50%;
+    -webkit-animation: hideBNTS 1s linear alternate infinite;
+            animation: hideBNTS 1s linear alternate infinite;
+    text-align: center;
+}
+
+.Up{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    background: black;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-transform: translateY(-50px) rotateX(90deg);
+            transform: translateY(-50px) rotateX(90deg);
+    border: 1px solid black;
+    opacity: 50%;
+    -webkit-animation: hideBNTS 1s linear alternate infinite;
+            animation: hideBNTS 1s linear alternate infinite;
+    text-align: center;
+}
+
+.HoverIn{
+    background: red;
+    opacity: 80%;
+}
+
+.Down{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    background: black;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-transform: translateY(50px) rotateX(-90deg);
+            transform: translateY(50px) rotateX(-90deg);
+    border: 1px solid black;
+    opacity: 50%;
+    -webkit-animation: hideBNTS 1s linear alternate infinite;
+            animation: hideBNTS 1s linear alternate infinite;
+    text-align: center;
+}
+
+#cubikSheet{
+    background: black;
+    color: white;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    opacity: 80%;
+    height: 0%;
+    max-height: 80%;
+    width: 80%;
+    border-radius: 10%;
+    font-size: 0px;
+    -webkit-transition: height 1s ease-out, top 1s ease-out, font-size 1s ease-out, -webkit-transform 1s ease-out;
+    transition: height 1s ease-out, top 1s ease-out, font-size 1s ease-out, -webkit-transform 1s ease-out;
+    -o-transition: height 1s ease-out, top 1s ease-out, font-size 1s ease-out, transform 1s ease-out;
+    transition: height 1s ease-out, top 1s ease-out, font-size 1s ease-out, transform 1s ease-out;
+    transition: height 1s ease-out, top 1s ease-out, font-size 1s ease-out, transform 1s ease-out, -webkit-transform 1s ease-out;
+    z-index: 9997;
+    overflow-y: scroll;
+}
+
+#cubikSheet p{
+    margin: 3rem;
+}
+
+#cubikSheet::-webkit-scrollbar{
+    width: 5px;
+    background-color: black;
+    height: 0px;
+    opacity: 80%;
+}
+#cubikSheet::-webkit-scrollbar-thumb{
+    background-color: red;
+    opacity: 80%;
+}
+
+.mt4Ref, .mt5Ref, .quikRef, .ninjaTraderRef{
+    color: lime;
+    text-shadow: none;
+}
+
+.mt4Ref:hover, .mt5Ref:hover, .quikRef:hover, .ninjaTraderRef:hover{
+    cursor: pointer;
+    color: lime;
+    text-shadow: 1px 1px 1px lime;
+}
+
+.detail:hover{
+    cursor: pointer;
+}

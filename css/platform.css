@@ -1,0 +1,1225 @@
+.flex-container_01{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 100%;
+    height: 40px;
+    z-index: 9998;
+    background: black;
+    opacity: 100%;
+    overflow-y: hidden;
+}
+
+/* ЗАПРЕТ НА ВЫДЕЛЕНИЕ ТЕКСТА: */
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*------------------------------*/
+
+
+/* --------------- Tool Bar: ---------------- */
+.comeback{
+    width: 30px;
+    height: 30px;
+    background: url("../img/icons/back_01.png") no-repeat center;
+    opacity: 80%;
+}
+
+.comeback:hover{
+    cursor: pointer;
+    background: url("../img/icons/back_01_02.png") no-repeat center;
+}
+
+.scrin:hover, .m1 p:hover, .m5 p:hover, .m15 p:hover, .h1 p:hover, .h4 p:hover, .d1 p:hover, .barView:hover, .candleView:hover, .volumeBar_01:hover, .volumeBar_02:hover, .volumeBar_03:hover, .crossHair:hover, .hlevel:hover, .tglevel:hover, .vlevel:hover, .arrow:hover, .text p:hover, .rect:hover, .online:hover, .plus p:hover, .minus p:hover{
+    cursor: pointer;
+    background-color: blue;
+}
+
+.scrin{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/screen.png") no-repeat center;
+    opacity: 80%;
+}
+
+.m1, .m5, .m15, .h1, .h4, .d1{
+    width: 4.75%;
+    height: 40px;
+    background: black;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.m1 p, .m5 p, .m15 p, .h1 p, .h4 p, .d1 p{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.barView{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/bar.png") no-repeat center;
+}
+
+.candleView{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/candle.png") no-repeat center;
+}
+
+.volumeBar_01{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/barnew.png") no-repeat center;
+}
+
+.volumeBar_02{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/volumeCandle.png") no-repeat center;
+}
+
+.volumeBar_03{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/volumeBar.png") no-repeat center;
+}
+
+.crossHair{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/Perecrestie.png") no-repeat center;
+}
+
+.hlevel{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/hline.png") no-repeat center;
+}
+
+.tglevel{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/tgline.png") no-repeat center;
+}
+
+.vlevel{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/vline.png") no-repeat center;
+}
+
+.arrow{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/arrow.png") no-repeat center;
+}
+
+.rect{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 4.75%;
+    height: 4.75%;
+    background: url("../img/icons/rect.png") no-repeat center;
+}
+
+.minus, .text, .plus{
+    width: 4.75%;
+    height: 40px;
+    background: black;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+.minus p, .plus p{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.text p{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+
+.online{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 5%;
+    height: 5%;
+    background: url("../img/icons/online_02.png") no-repeat center;
+}
+/* -------------------------------------- */
+/* --------------- Body: ---------------- */
+
+@-webkit-keyframes anime_Volume{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: blue;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #6666ff;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #6666ff;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: #6666ff;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+}
+
+@keyframes anime_Volume{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: blue;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #6666ff;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #6666ff;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: #6666ff;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+}
+
+@-webkit-keyframes anime_Multicharts{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: blue;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #6666ff;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #6666ff;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: #6666ff;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+}
+
+@keyframes anime_Multicharts{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: blue;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #6666ff;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #6666ff;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: #6666ff;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: blue;
+    }
+}
+
+@-webkit-keyframes anime_Arb{
+    from{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    20%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    30%{
+        -webkit-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+        background: #3399ff;
+    }
+    40%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #003300;
+    }
+    50%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #003300;
+    }
+    60%{
+        -webkit-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+        background: #003300;
+    }
+    70%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    to{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+}
+
+@keyframes anime_Arb{
+    from{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    20%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    30%{
+        -webkit-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+        background: #3399ff;
+    }
+    40%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #003300;
+    }
+    50%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #003300;
+    }
+    60%{
+        -webkit-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+        background: #003300;
+    }
+    70%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    to{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+}
+
+@-webkit-keyframes anime_Res{
+    from{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    20%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    30%{
+        -webkit-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+        background: #3399ff;
+    }
+    40%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #003300;
+    }
+    50%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #003300;
+    }
+    60%{
+        -webkit-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+        background: #003300;
+    }
+    70%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    to{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+}
+
+@keyframes anime_Res{
+    from{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    20%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    30%{
+        -webkit-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+        background: #3399ff;
+    }
+    40%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #003300;
+    }
+    50%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #003300;
+    }
+    60%{
+        -webkit-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+        background: #003300;
+    }
+    70%{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+    to{
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        background: #3399ff;
+    }
+}
+
+@-webkit-keyframes anime_Options{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkblue;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #006666;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #006666;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: #006666;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+}
+
+@keyframes anime_Options{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkblue;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #006666;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #006666;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: #006666;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+}
+
+@-webkit-keyframes anime_Arb_on{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkblue;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #006666;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #006666;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: #006666;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+}
+
+@keyframes anime_Arb_on{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkblue;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #006666;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: #006666;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: #006666;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkblue;
+    }
+}
+
+@-webkit-keyframes anime_Vol_CME{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkred;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkgreen;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkgreen;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkgreen;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+}
+
+@keyframes anime_Vol_CME{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkred;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkgreen;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkgreen;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkred;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+}
+
+@-webkit-keyframes anime_arbVer{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkred;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkgreen;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkgreen;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkgreen;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+}
+
+@keyframes anime_arbVer{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkred;
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkgreen;
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkgreen;
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+        background: darkgreen;
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        background: darkred;
+    }
+}
+.volume:hover, .mult:hover, .resources:hover, .arb:hover, .arb_on:hover, .arb_versions:hover{
+    cursor: pointer;
+    color: white;
+    animation: paused;
+}
+
+.volume{
+    color: silver;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    height: 55%;
+    width: calc(40% + 4px);
+    background: blue;
+    opacity: 80%;
+    text-align: center;
+    font-size: 16px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_Volume 5s ease-out 1s infinite;
+            animation: anime_Volume 5s ease-out 1s infinite;
+}
+
+.resources{
+    color: silver;
+    position: absolute;
+    left: 4px;
+    top: calc(55% + 8px);
+    height: calc(45% - 38px);
+    width: calc(40% + 4px);
+    background: #3399ff;
+    opacity: 80%;
+    text-align: center;
+    font-size: 16px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_Res 5s ease-out 3s infinite;
+            animation: anime_Res 5s ease-out 3s infinite;
+}
+
+.arb{
+    color: silver;
+    position: absolute;
+    left: calc(40% + 12px);
+    top: 4px;
+    height: 35%;
+    width: 30%;
+    background: #3399ff;
+    opacity: 80%;
+    text-align: center;
+    font-size: 16px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_Arb 5s ease-out 3s infinite;
+            animation: anime_Arb 5s ease-out 3s infinite;
+}
+
+.mult{
+    color: silver;
+    position: absolute;
+    left: calc(40% + 12px);
+    top: calc(35% + 8px);
+    height: calc(65% - 38px);
+    width: 30%;
+    background: blue;
+    opacity: 80%;
+    text-align: center;
+    font-size: 16px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_Multicharts 5s ease-out 1s infinite;
+            animation: anime_Multicharts 5s ease-out 1s infinite;
+}
+
+.arb_on{
+    color: silver;
+    position: absolute;
+    left: calc(70% + 16px);
+    top: 4px;
+    height: calc(60%);
+    width: calc(30% - 20px);
+    background: darkblue;
+    opacity: 80%;
+    text-align: center;
+    font-size: 16px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_Arb_on 5s ease-out 7s infinite;
+            animation: anime_Arb_on 5s ease-out 7s infinite;
+}
+
+.arb_versions{
+    color: silver;
+    position: absolute;
+    left: calc(70% + 16px);
+    top: calc(60% + 8px);
+    height: calc(40% - 38px);
+    width: calc(30% - 20px);
+    background: darkred;
+    opacity: 80%;
+    text-align: center;
+    font-size: 16px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_arbVer 5s ease-out 5s infinite;
+            animation: anime_arbVer 5s ease-out 5s infinite;
+}
+
+.volume::-webkit-scrollbar, .volumeCME::-webkit-scrollbar, .arb_on::-webkit-scrollbar, .mult::-webkit-scrollbar, .arb::-webkit-scrollbar, .options::-webkit-scrollbar, .resources::-webkit-scrollbar, .arb_versions::-webkit-scrollbar{
+    width: 0px;
+    background-color: black;
+}
+/* -------------------------------------- */
+/* --------------- Status Bar: ---------- */
+
+.statusBar-flex{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    background: black;
+    opacity: 80%;
+}
+.statusBar-flex p{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: bold;
+    
+}
+.statusBar-flex p .spanID_01{
+    margin-left: 1rem;
+    color: red;
+}
+
+.statusBar-flex p .spanID_02{
+    color: grey;
+}
+
+
+
+/* -------------------------------------- */
+/* -------------- КНОПКА ЗАГРУЗКИ КОТИРОВОК: ----------------*/
+
+@-webkit-keyframes btnDatasDownload_anim{
+    from{
+        background: darkgreen;
+    }
+    to{
+        background: lime;
+    }
+}
+
+@keyframes btnDatasDownload_anim{
+    from{
+        background: darkgreen;
+    }
+    to{
+        background: lime;
+    }
+}
+
+.btnDatasDownload{
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform: translate(3px, calc(100vh - 77px));
+        -ms-transform: translate(3px, calc(100vh - 77px));
+            transform: translate(3px, calc(100vh - 77px));
+    display: none;
+    width: calc(30% - 4px);
+    height: 40px;
+    color: white;
+    background: darkgreen;
+    text-align: center;
+    -webkit-transition: opacity 0.5s ease-out;
+    -o-transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out;
+    -webkit-animation: btnDatasDownload_anim 0.5s ease-out infinite;
+            animation: btnDatasDownload_anim 0.5s ease-out infinite;
+    overflow: hidden;
+}
+
+.btnDatasDownload:hover{
+    cursor: pointer;
+    -webkit-animation: btnDatasDownload_anim 0.1s ease-out infinite;
+            animation: btnDatasDownload_anim 0.1s ease-out infinite;
+}
+
+/* --------------------------------------------------------- */
+
+#copyField{
+    position: absolute;
+    left: -150px;
+    top: -100px;
+    width: 100px;
+    height: 40px;
+    color: black;
+    background: black;
+    display: none;
+}
+
+.instruments {
+    color: grey;
+    text-align: left;
+    font-family: "serif";
+    font-size: 16px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1.5rem;
+    margin-right: 0;
+    overflow: hidden;
+    height: 1.5rem;
+    width: 100%;
+}
+
+.instrumentsAdded, .instrumentsAddedMult{
+    color: lime;
+    text-align: left;
+    font-size: 14px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    margin-right: 0;
+    height: 20px;
+    width: 100%;
+}
+
+
+.multLineEdit{
+    height: 100%;
+    width: 75%;
+    color: white;
+    font-size: 14px;
+    font-family: cursive;
+    background: darkred;
+    padding-left: 0.5rem;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 1rem;
+}
+
+.instruments:hover{
+    cursor: pointer;
+    color: white;
+}
+
+.instrumentsAdded:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.instrumentsAddedMult:hover{
+    cursor: pointer;
+    color: red;
+    border: 2px solid red;
+}
+
+.radioOn:hover, .radioOff:hover, .radioMult:hover, .radioVers:hover{
+    cursor: pointer;
+}
+
+.topSheet{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 9998;
+    background: black;
+    opacity: 80%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.topSheet::-webkit-scrollbar{
+    height: 10px;
+    background-color: black;
+}
+
+.topSheet::-webkit-scrollbar-thumb{
+    background-color: darkred;
+}
+
+.topSheet::-webkit-scrollbar-thumb:hover{
+    cursor: pointer;
+    background-color: lime;
+}
+
+/*
+.topSheetBtn{
+    width: 200px;
+    height: 30px;
+    background: darkred;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+*/
+
+/*
+.topSheetBtn p{
+    margin: 0;
+}
+*/
+
+/*
+.topSheetBtn:hover{
+    cursor: pointer;
+    background: red;
+}
+*/
+
+.charts{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 80px;
+    width: 100%;
+    height: calc(100% - 110px);
+    background: black;
+    opacity: 80%;
+    z-index: 9998;
+}

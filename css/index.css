@@ -1,0 +1,581 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------------- УСТАНОВКА ШРИФТОВ: */
+
+@font-face {
+    font-family: 'Gloria Hallelujah';
+    src: url(../font/GloriaHallelujah-Regular.ttf);
+}
+
+html, body{
+    font-family: 'Gloria Hallelujah', serif, sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#bg_01, #bg_02{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    overflow: hidden;
+}
+#bg_01{
+    background: url("../img/bg/kisa_01.jpg") no-repeat bottom center;
+    display: block;
+}
+#bg_02{
+    background: url("../img/bg/kisa_02.jpg") no-repeat bottom center;
+    display: none;
+}
+
+
+/* ЗАПРЕТ НА ВЫДЕЛЕНИЕ ТЕКСТА: */
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* ------------------------------------------------------------------------------------ */
+/* -------------------------------------------------------- УСТАНОВКА АДАПТИВНОГО ФОНА: */
+/*
+@media (min-width : 0px)  {
+    html{
+        background: white;
+        overflow: hidden;
+    }
+}
+@media (min-width : 200px) {
+    html{
+        background: url("../img/bg/kisa_320x480.jpg") no-repeat;
+        -moz-background-size: 100%;
+        -webkit-background-size: 100%;
+        -o-background-size: 100%;
+        background-size: 100%;
+        overflow: hidden;
+    }
+}
+@media (min-width : 360px)  {
+    html{
+        background: url("../img/bg/kisa_360x640.jpg") no-repeat;
+        -moz-background-size: 100%;
+        -webkit-background-size: 100%;
+        -o-background-size: 100%;
+        background-size: 100%;
+        overflow: hidden;
+    }
+}
+/.......................................................................
+*/
+/* ------------------------------------------------------------------------------------ */
+/* ---------------------------------------------- ГЛОБАЛЬНЫЕ КНОПКИ, СОСТАВЛЯЮЩИЕ МЕНЮ: */
+
+.global_btn{
+    background: black;
+    opacity: 80%;
+    height: 100px;
+    width: 100px;
+    color: black;
+}
+.global_btnLR{
+    background: black;
+    opacity: 80%;
+    height: 100px;
+    width: 100px;
+    color: black;
+}
+
+#btn_01{
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: translate(-50px, -50px) rotate(-45deg);
+        -ms-transform: translate(-50px, -50px) rotate(-45deg);
+            transform: translate(-50px, -50px) rotate(-45deg);
+    text-align: center;
+    z-index: 9999;
+}
+#btn_02{
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: translate(50px, -50px) rotate(45deg);
+        -ms-transform: translate(50px, -50px) rotate(45deg);
+            transform: translate(50px, -50px) rotate(45deg);
+    text-align: center;
+    z-index: 9999;
+}
+
+#btn_04{
+    position: absolute;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: translate(50px, 50px) rotate(-45deg);
+        -ms-transform: translate(50px, 50px) rotate(-45deg);
+            transform: translate(50px, 50px) rotate(-45deg);
+    text-align: center;
+    z-index: 9999;
+}
+#btn_05{
+    position: absolute;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: translate(-50px, 50px) rotate(45deg);
+        -ms-transform: translate(-50px, 50px) rotate(45deg);
+            transform: translate(-50px, 50px) rotate(45deg);
+    text-align: center;
+    z-index: 9999;
+}
+#btn_06{
+    position: absolute;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    left: 0;
+    top: 0;
+    -webkit-transform: translate(-100px, calc(50vh - 50px)) rotate(-45deg);
+        -ms-transform: translate(-100px, calc(50vh - 50px)) rotate(-45deg);
+            transform: translate(-100px, calc(50vh - 50px)) rotate(-45deg);
+    text-align: right;
+    -webkit-transition: color 1s ease-out, -webkit-transform 0.1s ease-out;
+    transition: color 1s ease-out, -webkit-transform 0.1s ease-out;
+    -o-transition: transform 0.1s ease-out, color 1s ease-out;
+    transition: transform 0.1s ease-out, color 1s ease-out;
+    transition: transform 0.1s ease-out, color 1s ease-out, -webkit-transform 0.1s ease-out;
+    z-index: 9999;
+}
+#btn_07{
+    height: 100px;
+    width: 100px;
+    background: black;
+    opacity: 80%;
+    color: lime;
+    position: absolute;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    top: 0;
+    right: 0;
+    -webkit-transform: translate(50px, calc(50vh - 50px)) rotate(45deg);
+        -ms-transform: translate(50px, calc(50vh - 50px)) rotate(45deg);
+            transform: translate(50px, calc(50vh - 50px)) rotate(45deg);
+    -webkit-transition: color 1s ease-out, -webkit-transform 1s ease-out;
+    transition: color 1s ease-out, -webkit-transform 1s ease-out;
+    -o-transition: transform 1s ease-out, color 1s ease-out;
+    transition: transform 1s ease-out, color 1s ease-out;
+    transition: transform 1s ease-out, color 1s ease-out, -webkit-transform 1s ease-out;
+    text-align: left;
+    z-index: 9999;
+    font-size: 36px;
+    -webkit-animation: GO 0.3s ease-out infinite;
+            animation: GO 0.3s ease-out infinite;
+    -webkit-box-shadow: 0px 0px 20px blue;
+            box-shadow: 0px 0px 20px blue;
+}
+
+#btn_08{
+    opacity: 80%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    left: 0;
+    top: 0;
+    -webkit-transform: translate(calc(75vw - 100px), -50px) rotate(-45deg);
+        -ms-transform: translate(calc(75vw - 100px), -50px) rotate(-45deg);
+            transform: translate(calc(75vw - 100px), -50px) rotate(-45deg);
+    text-align: center;
+    z-index: 9999;
+    -webkit-animation: hideBNTS 1s linear alternate infinite;
+            animation: hideBNTS 1s linear alternate infinite;
+    -webkit-transition: -webkit-transform 0.1s linear;
+    transition: -webkit-transform 0.1s linear;
+    -o-transition: transform 0.1s linear;
+    transition: transform 0.1s linear;
+    transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+}
+#btn_08:hover, #btn_10:hover{
+    cursor: pointer;
+}
+
+#btn_10{
+    opacity: 80%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display: none;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    left: 0;
+    top: 0;
+    -webkit-transform: translate(25vw, -50px) rotate(45deg);
+        -ms-transform: translate(25vw, -50px) rotate(45deg);
+            transform: translate(25vw, -50px) rotate(45deg);
+    text-align: center;
+    -webkit-animation: hideBNTS 1s linear alternate infinite;
+            animation: hideBNTS 1s linear alternate infinite;
+    -webkit-transition: -webkit-transform 0.1s linear;
+    transition: -webkit-transform 0.1s linear;
+    -o-transition: transform 0.1s linear;
+    transition: transform 0.1s linear;
+    transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+    z-index: 9999;
+}
+
+#btn_10 p{
+    margin: 0;
+    padding-right: 0.5rem;
+    padding-top: 3rem;
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+
+#btn_01 p, #btn_02 p{
+    margin: 0;
+    padding-top: 3.5rem;
+}
+#btn_04 p, #btn_05 p{
+    margin: 0;
+    padding-top: 0;
+}
+#btn_06 p {
+    margin: 0;
+    padding-top: 4.7rem;
+    -webkit-transform: rotate(45deg) translate(-0.3rem, -2.8rem);
+        -ms-transform: rotate(45deg) translate(-0.3rem, -2.8rem);
+            transform: rotate(45deg) translate(-0.3rem, -2.8rem);
+}
+
+#btn_07 p{
+    margin: 0;
+    padding-top: 3.7rem;
+    -webkit-transform: rotate(-45deg) translate(0.3rem, -2.8rem);
+        -ms-transform: rotate(-45deg) translate(0.3rem, -2.8rem);
+            transform: rotate(-45deg) translate(0.3rem, -2.8rem);
+}
+#btn_08 p{
+    margin: 0;
+    padding-top: 3rem;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+}
+
+@-webkit-keyframes GO{
+    from{
+        background: lime;
+    }
+    to{
+        background: black;
+    }
+}
+
+@keyframes GO{
+    from{
+        background: lime;
+    }
+    to{
+        background: black;
+    }
+}
+@-webkit-keyframes GOOFF{
+    from{
+        background: red;
+    }
+    to{
+        background: black;
+    }
+}
+@keyframes GOOFF{
+    from{
+        background: red;
+    }
+    to{
+        background: black;
+    }
+}
+@-webkit-keyframes GOOFF2{
+    from{
+        background: lime;
+    }
+    to{
+        background: black;
+    }
+}
+@keyframes GOOFF2{
+    from{
+        background: lime;
+    }
+    to{
+        background: black;
+    }
+}
+
+@-webkit-keyframes hideBNTS{
+    from{
+        background: white;
+        color :black;
+    }
+    to{
+        background: black;
+        color: white;
+    }
+}
+
+@keyframes hideBNTS{
+    from{
+        background: white;
+        color :black;
+    }
+    to{
+        background: black;
+        color: white;
+    }
+}
+/* ------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------ ЗАТЕМНЯЮЩИЙ СЛОЙ: */
+.darkSheet_01{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+}
+
+.darkSheet_02{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 80%;
+    color: white;
+    overflow: hidden;
+}
+
+.darkSheet_03{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 80%;
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+    color: white;
+    overflow: hidden;
+}
+#darkSheet_04{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 100%;
+    top: 100%;
+    -webkit-transform-origin: left top;
+        -ms-transform-origin: left top;
+            transform-origin: left top;
+    -webkit-transform: translate(0vw, 0vh);
+        -ms-transform: translate(0vw, 0vh);
+            transform: translate(0vw, 0vh);
+    -webkit-transition: -webkit-transform 1s ease-out;
+    transition: -webkit-transform 1s ease-out;
+    -o-transition: transform 1s ease-out;
+    transition: transform 1s ease-out;
+    transition: transform 1s ease-out, -webkit-transform 1s ease-out;
+    height: 75%;
+    width: 75%;
+    background: black;
+    opacity: 80%;
+    color: white;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: none;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+#darkSheet_04::-webkit-scrollbar{
+    width: 0px;
+    background-color: black;
+    opacity: 80%;
+}
+.darkSheet_05{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 80%;
+    color: white;
+    overflow: hidden;
+}
+.darkSheet_06{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 80%;
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+    color: white;
+    overflow: hidden;
+}
+#darkSheet_07{
+    opacity: 0%;
+    display: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    -webkit-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+    color: white;
+    overflow: hidden;
+}
+.darkSheet_07{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0%;
+    -webkit-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+    color: white;
+}
+.darkSheet_09{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: -100%;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 80%;
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+    color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.darkSheet_09::-webkit-scrollbar{
+    height: 0;
+    background-color: black;
+}
+/* ------------------------------------------------------------------------------------ */
+
+.btnSendMail{
+    width: 100%;
+    text-align: center;
+}
+
+.btnSendMail input:hover{
+    background: lime !important;
+    cursor: pointer;
+}
+.selectContact:hover{
+    cursor: pointer;
+}
+
+.contactSheet{
+    width: 100%;
+    height: 100%;
+}
+
+.statusMessage{
+    position: absolute;
+    width: 300px;
+    height: auto;
+    left: calc(50% - 150px);
+    top: calc(50% - 50px);
+    background: white;
+    text-align: center;
+    color: black;
+    display: none;
+    -webkit-transition: opacity 0.5s ease-out;
+    -o-transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out;
+    z-index: 11000;
+    padding: 0;
+    opacity: 0;
+}
+
+.statusMessage p{
+    font-weight: bold;
+}
+
+.tdleftColumn{
+    text-align: right;
+    color: yellow;
+    width: 25%;
+}
+.tdleftColumn2{
+    text-align: right;
+    color: yellow;
+    width: 40%;
+}
+
+.trRow{
+    height: 2rem;
+}
+.trRow:hover{
+    background: grey;
+}

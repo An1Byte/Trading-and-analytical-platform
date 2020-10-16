@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Кластерные графики, графики объемов, арбитраж, мультиграфики, построение синтетических инструментов и прочий инструментарий - все это теперь доступно в онлайне... GO !!!"/>
+    <meta name="keywords" content="invizzz, объемы форекс, биржевой арбитраж, биржевые данные, кластерный график, мультиграфик,
+forex volumes"/>
+    <title>INVIZZZ =^_^= EXPLORER</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cube.css">
+    <link rel="stylesheet" href="css/platform.css">
+    <link rel="stylesheet" href="css/Sheets.css">
+    <link rel="stylesheet" href="css/loaderWin8.css">
+    <link rel="shortcut icon" href="favicon.iso">
+</head>
+<body>
+    <!-- Блок основного меню: -->
+    <div id="bg_01"></div>
+    <div id="bg_02"></div>
+    <div class="global_btn" id="btn_01"><p>&bull; &bull; &bull;</p></div>
+    <div class="global_btn" id="btn_02"><p>Log In</p></div>
+    <div class="global_btn" id="btn_04"><p>Mess</p></div>
+    <div class="global_btn" id="btn_05"><p>News</p></div>
+    <div class="global_btnLR" id="btn_06"><p>Chat</p></div>
+    <div class="global_btnGO" id="btn_07"><p>GO</p></div>
+    <div class="global_btnINVIZ" id="btn_08"><p>Invis</p></div>
+    <div class="global_btnList unselectable" id="btn_10" data-flag="0"><p>Charts</p></div>
+    <div id="darkSheet_00">
+        <div id="figure">
+            <div id="Front"><p>ARTICLES</p></div>
+            <div id="Left"><p>FAQ</p></div>
+            <div id="Right"><p>DOWNLOADS</p></div>
+            <div id="Back"><p>ABOUT</p></div>
+            <div id="Up"><p>NONE</p></div>
+            <div id="Down"><p>WISHES</p></div>
+        </div>
+    </div>
+    <div id="darkSheet_01"></div>
+    <div id="darkSheet_02"></div>
+    <div id="darkSheet_03"></div>
+    <div id="darkSheet_04">
+        <div class='contactSheet'>
+            <h3 style="color: darkred;">
+                <center>CONTACTS</center>
+            </h3>
+            <p style='margin-bottom: 0; margin-left: 2rem; margin-right: 2rem; margin-top: 1rem;'>If you'll want to ask anything or to tell developer of this site, then to use this form....</p>
+            <form method='POST' id='formForMail'>
+                <div style='margin-left: 10%;'>
+                    <select onchange='getValue(this.value); return false;' class='selectContact' style='color: yellow; background: darkred; width: 30%;'>
+                        <head>
+                            <title>Choose a theme</title>
+                        </head>
+                        <body>
+                            <option value='1'>Ask a question</option>
+                            <option class='opt' value='2'>Offer cooperation</option>
+                        </body>
+                    </select>
+                </div>
+                <div style='margin-left: 10%;'>
+                    <input type='text' class='userNameMail' name='userNameMail' style='background: darkred; color: white; outline: none; width: calc(30% - 3px); outline: none;' placeholder='Yours name or nickname...'>
+                </div>
+                <div style='margin-left: 10%;'>
+                    <input type='text' class='email' name='email' style='background: darkred; color: white; outline: none; width: calc(30% - 3px); outline: none;' placeholder='Yours e-mail...'>
+                </div>
+                <div>
+                    <textarea class='textA' name='textA' id='textAreaMail' cols='70' rows='10' style='margin-left: 10%; background: darkred; color: white; outline: none;'></textarea>
+                </div>
+                <div class='btnSendMail'>
+                    <input type='submit' onclick='sendMail(); return false;' value='To send the message' style='background: darkgreen; color: white;'>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="darkSheet_05"></div>
+    <div id="darkSheet_06"></div>
+    <div id="darkSheet_07">
+    
+<!--      ToolsBar:-->
+       <div class="flex-container_01">
+            <div class="scrin"></div>
+            
+            <div class="m1"><p>m1</p></div>
+            <div class="m5"><p>m5</p></div>
+            <div class="m15"><p>m15</p></div>
+            <div class="h1"><p>h1</p></div>
+            <div class="h4"><p>h4</p></div>
+            <div class="d1"><p>d1</p></div>
+            
+            <div class="barView"></div>
+            <div class="candleView"></div>
+            <div class="volumeBar_01"></div>
+            <div class="volumeBar_02"></div>
+            <div class="volumeBar_03"></div>
+            
+            <div class="crossHair"></div>
+            <div class="hlevel"></div>
+            <div class="tglevel"></div>
+            <div class="vlevel"></div>
+            <div class="arrow"></div>
+            <div class="text"><p>Text</p></div>
+            <div class="rect"><p></p></div>
+            
+            <div class="plus"><p>+</p></div>
+            <div class="minus"><p>-</p></div>
+            
+            <div class="online"></div>
+       </div>
+        
+        <div class="charts"></div>
+       
+        <div class="startMenu">
+           
+            <!-- Меню платформы: -->
+            <div class="volume">
+                <h3 style="line-height: 1.5rem;">Volumes FORTS &amp; MICEX-RTS:</h3>
+                <p style="line-height: 1.3rem; margin: 0.5rem;"><i>Volumes FORTS &amp; MICEX-RTS is a mode for representing instruments of the Russian market using cluster charts and volume charts. It is also possible to trade in one click and place limit or pending orders, if you first link the instrument in question with the instrument from your terminal.</i></p>
+            </div>
+            <div class="resources">
+                <h3 style="line-height: 1.5rem;">Resources:</h3>
+                <p style="line-height: 1.3rem; margin: 0.5rem;"><i>Resources - external and internal resources that can help in work and research. Everything is assembled into a single action game for maximum efficiency when surfing third-party portals.</i></p>
+            </div>
+            <div class="arb">
+                <h3 style="line-height: 1.5rem;">Arbitrage offline:</h3>
+                <p style="line-height: 1.3rem; margin: 0.5rem;"><i>Arbitrage offline is a mode of constructing synthetic instruments, in which it is possible to view both historical information on the "spread" and current ones as well. Synthetics are plotted based on the closing price levels of the bars of the instruments, depending on the "spread", in other words, the chart is presented as a curved line. There is also the ability to trade synthetics in one click.</i></p>
+            </div>
+            <div class="mult">
+                <h3 style="line-height: 1.5rem;">Multicharts:</h3>
+                <p style="line-height: 1.3rem; margin: 0.5rem;"><i>Multicharts is a view mode in which many selected charts are displayed in one area, while the initial common point for plotting the charts is assigned to the instruments, and at this point all instruments are brought to a total imaginary value, due to which the level of correlation at any moment in time relative to a given point will be 100% correct and will not shift (change) when scrolling. However, you can also set your own contango / backwardation ratio for each instrument. There is also a one-click opportunity to conclude transactions at a time for each set of instruments participating in the presentation.</i></p>
+            </div>
+            <div class="arb_on">
+                <h3 style="line-height: 1.5rem;">Arbitrage online:</h3>
+                <p style="line-height: 1.3rem; margin: 0.5rem;"><i>Arbitrage online is a mode of building synthetic instruments, in which the history is accumulated as long as the portal and terminals are synchronized with each other. The data on the "spread" between the two instruments is as accurate as possible, due to the candlestick representation of the synthetic chart. This mode is more suitable for arbitrageurs and traders engaged in pair trading on instruments between which the correlation level is in the range from 80% to 99%. There is also the ability to trade synthetics in one click.</i></p>
+            </div>
+            <div class="arb_versions">
+                <h3 style="line-height: 1.5rem;">Arbitrage versions:</h3>
+                <p style="line-height: 1.3rem; margin: 0.5rem;"><i>Arbitrage versions is a mode of constructing synthetic instruments, in which it is possible to view both historical information on the "spread" and current ones as well. Synthetics are plotted based on the closing price levels of the bars of the instruments, depending on the "spread", in other words, the chart is presented as a curved line. A distinctive feature of this mode, versus Arbitrage offline mode, is that the "spread" is built depending on how the volatility of the dependent instruments changes, so the final result is a glued cut of synthetics with different levels of volatility. There is also the ability to trade synthetics in one click.</i></p>
+            </div>
+        </div>
+        
+        <!-- StatusBar: -->
+        <div class="statusBar-flex">
+            <div class="comeback"></div>
+            <p><span class="spanID_01" style="font-family: sans-serif;">Portal and terminals not synchronized</span><span class="spanID_02"></span></p>
+        </div>
+
+        <!-- Мультиграфик!!!: -->
+        <div class="multSheet">
+            <p class="multSheetDescript" style="margin: 0; margin-left: 3rem; margin-right: 3rem; height: 20%; font-size: 12px; text-align: center; overflow-y: scroll;">This section allows the user to build a multi-chart from the N-th set of instruments, while, due to the determination of the reference point, as well as equating all the selected instruments to the price of the first one, it avoids such bugs as, for example, displacement of charts relative to each other when scrolling and scaling the chart window ... To build a multi-chart - select the tools you need for plotting, while the number of charts superimposed on each other is unlimited. Then specify the start date of drawing, after which, click 'BUILD' to build the multiplot. If you have not yet synchronized the portal with the terminals, then, of course, you should first start with this, and for this, click on the "SYNCHRONIZE WITH TERMINALS" button, after which the server will generate an ID for you. You just need to copy it and paste it into the 'ID' field in the expert settings of your terminal, and then start the expert. When connecting multiple terminals, the procedure is the same - the same identifier is assigned to each terminal. There is no point in remembering this identifier, since a new identifier will be allocated to you on the next request. When the portal is refreshed or exited - the ID is automatically no longer valid and will need to be resynchronized, so use only the portal buttons for any transitions - everything is there to efficiently iterate through all layers of the application. Please note that the current ID is broadcast in the status line, so you can use it in case the clipboard has been overwritten with other data ...
+            In order for your terminal to interact with the portal, you must first download, install and run the appropriate expert. The expert is distributed free of charge and is available for download on this portal. To get an expert - click on the \ "DOWNLOADS \" button.
+               </p>
+                <div style="height: calc(80% - 30px);">
+                    <p class="unselectable" style="text-align: left; margin: 0; padding: 0; font-size: 14px; height: 20px;">List Instrument:</p>
+                    <div class="container" style="display: flex; height: calc(100% - 48px);">
+                        <div style="border: 1px solid white; margin: 2px; height: calc(100% + 48px); width: 50%;">
+                            <p class="unselectable" style="color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0; overflow: hidden;">Symbols | tickSizes</p>
+                            <div class="tblSearch"></div>
+                        </div>
+                        <div style="border: 1px solid white; margin: 2px; height: calc(100% - 85px); width: 50%; overflow: hidden;">
+                            <p class="tblHeader unselectable" style="margin: 0; padding: 0; color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0; overflow: hidden;">Added Symbols</p>
+                            <div class="tblSearch2"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="radioBlockTimeFrames unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-2px, calc(100vh - 165px)); text-align: center; width: calc(50% - 4px); height: 40px; margin: 0; padding: 0; background: darkred;">
+                                <label for="radioTimeFrame0" style="font-size: 14px; font-weight: normal; margin-left: 2rem;">m1</label>
+                                <input type="radio" class="radioMult" name="radioTimeFrame0" value="1" checked>
+                                <label for="radioTimeFrame0" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">m5</label>
+                                <input type="radio" class="radioMult" name="radioTimeFrame0" value="5">
+                                <label for="radioTimeFrame0" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">m15</label>
+                                <input type="radio" class="radioMult" name="radioTimeFrame0" value="15">
+                                <label for="radioTimeFrame0" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">h1</label>
+                                <input type="radio" class="radioMult" name="radioTimeFrame0" value="60">
+                                <label for="radioTimeFrame0" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">h4</label>
+                                <input type="radio" class="radioMult" name="radioTimeFrame0" value="240">
+                                <label for="radioTimeFrame0" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">d1</label>
+                                <input type="radio" class="radioMult" name="radioTimeFrame0" value="1440">
+                            </div>
+                    
+                    <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-2px - 20px), calc(100vh - 122px)); width: calc(50% - 24px); height: 40px; margin: 0; padding: 0;">
+                        <input class="inputDataMult" type="text" placeholder="Specify the time and date for the common origin, in the format hh: ss dd / mm / yyyy" style="height: 100%; width: 100%; font-size: 14px; font-family: cursive; color: white; background: darkred; border: none; padding-left: 1rem;">
+                    </div>
+                    <div class="btnMult" style="position: absolute; right: 0; top: 0; transform: translate(-2px, calc(100vh - 77px)); width: calc(50% - 4px); background: darkgreen; text-align: center; height: 40px; overflow: hidden;  margin: 0; padding: 0;">To build</div>
+                </div>
+        </div>
+
+        <!-- Арбитраж - онлайн!!!: -->
+        <div class="arbOnlineSheet" style="margin: 0; padding: 0;"> 
+                <p class="arbOnlineSheetDescript" style="margin: 0; margin-left: 3rem; margin-right: 3rem; height: 20%; font-size: 12px; text-align: center;">Thanks to the Online mode, you can build synthetics from any two instruments, while you can observe the exact intra-bar dynamics of changes for the created instrument, which can be especially useful when trading on small divergences. This is the advantage of this regime - the presence of dynamics of changes. The disadvantage of this mode is that it is not possible to view the history of such a chart, however, you can accumulate history on your own by simply waiting. Select from the list 2 instruments for which you want to build synthetics for arbitrage or pair trading, set the coefficients for them, or the system itself will select the most optimal of them and click the 'BUILD' button. Correlation coefficients for automatic calculation require entering the number of bars on the basis of which the coefficients will be calculated, which are determined as the ratio of the arithmetic average differences of the high and low prices of each bar in a given area multiplied by the ratio of the tick sizes of the 1st and 2nd instrument, and also multiplied by the ratio of the value of ticks of the 1st and the second instruments. The odds should be selected in such a way that the theoretically open oppositely directed positions on both instruments compensate each other as much as possible. If the coefficient for the first instrument, for example, is equal to 1.2, and for the second one, then, in order to sell the resulting instrument, you will need to sell 1.2 * n contracts (lot) of the first one and buy 1 * n contracts (lot) of the second, and if you want to buy the resulting instrument, then, on the contrary, buy 1.2 * n contracts (lot) of the first and sell 1 * n contracts (lot) of the second, where n is the volume of a position in contracts (lot) concluded for each deal. The resulting instrument is usually called a spread or a synthetic instrument. The spread between two instruments is the difference between the bid values of the first instrument and the bid of the second, but when making such a deal, you should take into account the size of the spread! If you have not yet synchronized the portal with the terminals, then, of course, you should first start with this, and for this, click on the "SYNCHRONIZE WITH TERMINALS" button, after which the server will generate an ID for you. You just need to copy it and paste it into the 'ID' field in the expert settings of your terminal, and then start the expert. When connecting multiple terminals, the procedure is the same - the same identifier is assigned to each terminal. There is no point in remembering this identifier, since a new identifier will be allocated to you on the next request. When the portal is refreshed or exited - the ID is automatically no longer valid and will need to be resynchronized, so use only the portal buttons for any transitions - everything is there to efficiently iterate through all layers of the application. Please note that the current ID is broadcast in the status line, so you can use it in case the clipboard has been overwritten with other data ... In order for your terminal to interact with the portal, you must first download, install and run the corresponding Expert Advisor. The expert is distributed free of charge and is available for download on this portal. To get an expert - click on the \ "DOWNLOADS \" button.</p>
+                <div style="height: calc(80% - 30px);">
+                    <p class="unselectable" style="text-align: left; margin: 0; padding: 0; font-size: 14px; height: 20px;">List Instrument:</p>
+                    <div class="container" style="display: flex; height: 100%;">
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 30%;">
+                            <p class="unselectable" style="color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0;" overflow: hidden;>Symbols | tickSizes</p>
+                            <div class="tblSearch"></div>
+                        </div>
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 70%; overflow: hidden;">
+                            <div class="partOfCoef" style=" height: 100%;">
+                                <p class ="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">First symbol: <span class='instrumentsAdded unselectable' id="FSON1"></span><span class='unselectable' style="visibility: hidden;" id="FSON1_1"></span></p>
+                                <div style="height: 15px;"></div>
+                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">Second symbol: <span class='instrumentsAdded unselectable' id="FSON2"></span><span class='unselectable' style="visibility: hidden;" id="FSON2_2"></span></p>
+                                
+                                <div class="unselectable askOn" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 378px)); width: calc(70% - 8px);; height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Are the tick values of the 1st and the 2nd instrument equivalent with the same position volume?</div>
+                                <div class="unselectable yesOn" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw - 2px), calc(100vh - 339px)); width: calc(35% - 7px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Yes</div>
+                                <div class="unselectable noOn" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 339px)); width: calc(35vw - 5px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">No</div>
+                                
+                                <div class="NoInput_On_Div" style="position: absolute; right: 0; top: 0; transform: translate(-7px, calc(100vh - 337px)); width: calc(35vw - 9px); height: 34px; margin: 0; padding: 0; display: none;">
+                                    <input class="NoInput_On" type="text" placeholder="Ratio of tick values..." style="height: 100%; width: 100%; color: white; background: darkred; border: none; font-size: 14px; font-family: cursive; text-align: center;">
+                                </div>
+                                
+                                <div class="unselectable ASKBTN_ON" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw + 43px), calc(100vh - 334px)); width: 40px; height: 34px; border-radius: 10px;  text-align: center; overflow: hidden; display: none; margin: 0; padding: 0; color: white;"><p style="margin-top: -0.1rem; padding:0; margin-left: -0.3rem; font-size: 20px;"><b>?</b></p></div>
+                                
+                                
+                                <div class="radioBlockTimeFrames unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 296px)); width: calc(70% - 8px); background: darkred; text-align: center; height: 40px; overflow: hidden;">
+                                   <label for="radioTimeFrame1" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">m1</label>
+                                    <input type="radio" class="radioOn" name="radioTimeFrame1" value="1" checked="checked">
+                                    <label for="radioTimeFrame1" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">m5</label>
+                                    <input type="radio" class="radioOn" name="radioTimeFrame1" value="5">
+                                    <label for="radioTimeFrame1" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">m15</label>
+                                    <input type="radio" class="radioOn" name="radioTimeFrame1" value="15">
+                                    <label for="radioTimeFrame1" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">h1</label>
+                                    <input type="radio" class="radioOn" name="radioTimeFrame1" value="60">
+                                    <label for="radioTimeFrame1" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">h4</label>
+                                    <input type="radio" class="radioOn" name="radioTimeFrame1" value="240">
+                                    <label for="radioTimeFrame1" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">d1</label>
+                                    <input type="radio" class="radioOn" name="radioTimeFrame1" value="1440">
+                                </div>
+                                
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 253px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
+                                    <input class="inputOnline_01" id="inputOnline_01" type="text" placeholder="Contango/backwardation ratio for the first instrument" style="height: 100%; color: white; width: 100%; background: darkred; border: none; font-size: 14px; font-family: cursive; padding-left: 1rem;">
+                                </div>
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 208px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
+                                    <input class="inputOnline_02" id="inputOnline_02" type="text" placeholder="Contango/backwardation ratio for the second instrument" style="height: 100%; width: 100%; color: white; font-size: 14px; font-family: cursive; background: darkred; border: none; padding-left: 1rem;">
+                                </div>
+                                
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 163px)); width: calc(70% - 28px); height: 38px; margin: 0; padding: 0;">
+                                    <input class="inputOnline_03" id="inputOnline_03" type="text" placeholder="Enter the number of bars to calculate the coefficient..." style="height: 100%; width: 100%; color: white; font-size: 14px; font-family: cursive; background: darkred; border: none; padding-left: 1rem;">
+                                </div>
+
+                                <div class="btnKoefOnline" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 120px)); width: calc(70% - 8px); background: darkred; text-align: center; height: 40px; overflow: hidden;">Calculate odds automatically</div>
+                                <div class="btnSpreadOnline unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 77px)); width: calc(70% - 8px); background: darkgreen; text-align: center; height: 40px; overflow: hidden;  margin: 0; padding: 0;">To build</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        
+        <!-- Арбитраж - оффлайн!!!: -->
+        <div class="arbOfflineSheet">
+            <p class="arbOfflineSheetDescript" style="margin: 0; margin-left: 3rem; margin-right: 3rem; height: 20%; font-size: 12px; text-align: center; overflow-y: scroll;">Thanks to the Offline mode, you can build synthetics from any two instruments, while you can immediately get acquainted with the historical data on the spread. This is the advantage of this mode - the presence of history. The disadvantage of this mode is that the spread is based on the closing prices, which means that you will not see intrabar fluctuations between instruments. Select from the list 2 instruments for which you want to build synthetics for arbitrage or pair trading, set the coefficients for them, or the system itself will select the most optimal of them and click the 'BUILD' button. Correlation coefficients for automatic calculation require entering the number of bars on the basis of which the coefficients will be calculated, which are determined as the ratio of the arithmetic average differences of the high and low prices of each bar in a given area multiplied by the ratio of the tick sizes of the 1st and 2nd instrument, and also multiplied by the ratio of the value of ticks of the 1st and the second instruments. The odds should be selected in such a way that the theoretically open oppositely directed positions on both instruments compensate each other as much as possible. If the coefficient for the first instrument is 1.2, and for the second 1, then, in order to sell the resulting instrument, you will need to sell 1.2 * n contracts (lot) of the first and buy 1 * n contracts (lot) of the second, and if you need to buy the resulting instrument, then on the contrary, buy 1.2 * n contracts (lot) of the first and sell 1 * n contracts (lot) of the second, where n is the volume of a position in contracts (lot) concluded for each deal. The resulting instrument is usually called a spread or a synthetic instrument, which will be evaluated on a scale in points of deviation of one instrument relative to another. The spread between two instruments is the difference between the bid values ​​of the first instrument and the bid of the second, but when making such a deal, you should take into account the size of the spread! If you have not yet synchronized the portal with the terminals, then, of course, you should first start with this, and for this, click on the "SYNCHRONIZE WITH TERMINALS" button, after which the server will generate an ID for you. You just need to copy it and paste it into the 'ID' field in the expert settings of your terminal, and then start the expert. When connecting multiple terminals, the procedure is the same - the same identifier is assigned to each terminal. There is no point in remembering this identifier, since a new identifier will be allocated to you on the next request. When the portal is refreshed or exited - the ID is automatically no longer valid and will need to be resynchronized, so use only the portal buttons for any transitions - everything is there to efficiently iterate through all layers of the application. Please note that the current ID is broadcast in the status line, so you can use it in case the clipboard has been overwritten with other data ... In order for your terminal to interact with the portal, you must first download, install and run the corresponding Expert Advisor. The expert is distributed free of charge and is available for download on this portal. To get an expert - click on the \ "DOWNLOADS \" button.</p>
+                <div style="height: calc(80% - 30px);">
+                    <p class="unselectable" style="text-align: left; margin: 0; padding: 0; font-size: 14px; height: 20px;">List Instrument:</p>
+                    <div class="container" style="display: flex; height: 100%;">
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 30%;">
+                            <p class="unselectable" style="color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0; overflow: hidden;">Symbols | tickSizes</p>
+                            <div class="tblSearch"></div>
+                        </div>
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 70%; overflow: hidden;">
+                            <div class="partOfCoef" style=" height: 100%;">
+                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">First symbol: <span class='instrumentsAdded unselectable' id="FSOFF1"></span><span class='unselectable' style="visibility: hidden;" id="FSOFF1_1"></span></p>
+                                <div style="height: 15px;"></div>
+                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">Second symbol: <span class='instrumentsAdded unselectable' id="FSOFF2"></span><span class='unselectable' style="visibility: hidden;" id="FSOFF2_2"></span></p>
+                                
+                                <div class="unselectable askOff" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 378px)); width: calc(70% - 8px);; height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Are the tick values of the 1st and the 2nd instrument equivalent with the same position volume?</div>
+                                <div class="unselectable yesOff" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw - 1px), calc(100vh - 339px)); width: calc(35% - 6px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Yes</div>
+                                <div class="unselectable noOff" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 339px)); width: calc(35vw - 5px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">No</div>
+                                
+                                <div class="NoInput_Off_Div" style="position: absolute; right: 0; top: 0; transform: translate(-9px, calc(100vh - 339px)); width: calc(35vw - 11px); height: 38px; margin: 0; padding: 0; display: none;">
+                                    <input class="NoInput_Off" type="text" placeholder="Ratio of tick values..." style="height: 100%; width: calc(35vw - 9px); color: white; background: darkred; border: none; font-size: 14px; font-family: cursive; text-align: center;">
+                                </div>
+                                
+                                <div class="unselectable ASKBTN_OFF" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw + 43px), calc(100vh - 334px)); width: 40px; height: 34px; border-radius: 10px;  text-align: center; overflow: hidden; display: none; margin: 0; padding: 0; color: white;"><p style="margin-top: -0.3rem; padding:0; margin-left: -0.3rem; font-size: 20px;"><b>?</b></p></div>
+                                
+                                <div class="radioBlockTimeFrames unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 296px)); width: calc(70% - 8px); background: darkred; text-align: center; height: 40px; overflow: hidden;">
+                                   <label for="radioTimeFrame2" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">m1</label>
+                                    <input type="radio" class="radioOff" name="radioTimeFrame2" value="1" checked>
+                                    <label for="radioTimeFrame2" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">m5</label>
+                                    <input type="radio" class="radioOff" name="radioTimeFrame2" value="5">
+                                    <label for="radioTimeFrame2" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">m15</label>
+                                    <input type="radio" class="radioOff" name="radioTimeFrame2" value="15">
+                                    <label for="radioTimeFrame2" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">h1</label>
+                                    <input type="radio" class="radioOff" name="radioTimeFrame2" value="60">
+                                    <label for="radioTimeFrame2" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">h4</label>
+                                    <input type="radio" class="radioOff" name="radioTimeFrame2" value="240">
+                                    <label for="radioTimeFrame2" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">d1</label>
+                                    <input type="radio" class="radioOff" name="radioTimeFrame2" value="1440">
+                                </div>
+                                
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 253px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
+                                    <input class="inputOffline_01" id="inputOffline_01" type="text" placeholder="Contango/backwardation ratio for the first instrument" style="height: 100%; color: white; width: 100%; background: darkred; border: none; font-size: 14px; font-family: cursive; padding-left: 1rem;">
+                                </div>
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 208px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
+                                    <input class="inputOffline_02" id="inputOffline_02" type="text" placeholder="Contango/backwardation ratio for the second instrument" style="height: 100%; width: 100%; color: white; font-size: 14px; font-family: cursive; background: darkred; border: none; padding-left: 1rem;">
+                                </div>
+                                
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 163px)); width: calc(70% - 28px); height: 38px; margin: 0; padding: 0;">
+                                    <input class="inputOffline_03" id="inputOffline_03" type="text" placeholder="Enter the number of bars to calculate the coefficient..." style="height: 100%; width: 100%; color: white; font-size: 14px; font-family: cursive; background: darkred; border: none; padding-left: 1rem;">
+                                </div>
+                                
+                                <div class="btnKoefOffline unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 120px)); width: calc(70% - 8px); background: darkred; text-align: center; height: 40px; overflow: hidden;">Calculate odds automatically</div>
+                                <div class="btnSpreadOffline unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 77px)); width: calc(70% - 8px); background: darkgreen; text-align: center; height: 40px; overflow: hidden;  margin: 0; padding: 0;">To build</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        
+        <!-- Арбитраж версий: -->
+        <div class="arbVersionsSheet">
+            <p class="arbVersionsSheetDescript" style="margin: 0; margin-left: 3rem; margin-right: 3rem; height: 20%; font-size: 12px; text-align: center; overflow-y: scroll;">Thanks to the Arbirage versions mode, you can build synthetics from any two instruments, while you can immediately get acquainted with the historical data on the glued spread from its different versions. This is the advantage of this mode - the presence of history. The disadvantage of this mode is that the spread is based on the closing prices, which means that you will not see intrabar fluctuations between instruments. The main distinguishing feature against the Offline mode is that the spread is built taking into account the changing contango / backwardation ratio, which is based on the change in the arithmetic mean volatility of the "spread" between instruments, so it turns out that, having determined the recalculation interval, you get many versions of the "spread" glued into one curve, which allows a more detailed study of one or another synthetics for correlation. Select from the list 2 instruments for which you want to build synthetics for arbitrage or pair trading, select the interval in which the coefficients will be recalculated and click the 'BUILD' button. Correlation coefficients are automatically calculated as the ratio of the arithmetic average differences of the high and low prices of each bar in a given area multiplied by the ratio of the tick sizes of the 1st and 2nd symbols, as well as multiplied by the ratio of the tick values of the 1st and the second symbols. The odds are selected in such a way that theoretically open oppositely directed positions on both instruments compensate each other as much as possible. If the coefficient for the first instrument is 1.2, and for the second 1, then, in order to sell the resulting instrument, you will need to sell 1.2 * n contracts (lot) of the first and buy 1 * n contracts (lot) of the second, and if you need to buy the resulting instrument, then on the contrary, buy 1.2 * n contracts (lot) of the first and sell 1 * n contracts (lot) of the second, where n is the volume of a position in contracts (lot) concluded for each deal. The resulting instrument is usually called a spread or a synthetic instrument, which will be evaluated on a scale in points of deviation of one instrument relative to another. The spread between two instruments is the difference between the bid values of the first instrument and the bid of the second, but when making such a deal, you should take into account the size of the spread! If you have not yet synchronized the portal with the terminals, then, of course, you should first start with this, and for this, click on the "SYNCHRONIZE WITH TERMINALS" button, after which the server will generate an ID for you. You just need to copy it and paste it into the 'ID' field in the expert settings of your terminal, and then start the expert. When connecting multiple terminals, the procedure is the same - the same identifier is assigned to each terminal. There is no point in remembering this identifier, since a new identifier will be allocated to you on the next request. When the portal is refreshed or exited - the ID is automatically no longer valid and will need to be resynchronized, so use only the portal buttons for any transitions - everything is there to efficiently iterate through all layers of the application. Please note that the current ID is broadcast in the status line, so you can use it in case the clipboard has been overwritten with other data ... In order for your terminal to interact with the portal, you must first download, install and run the corresponding Expert Advisor. The expert is distributed free of charge and is available for download on this portal. To get an expert - click on the \ "DOWNLOADS \" button.</p>
+                <div style="height: calc(80% - 30px);">
+                    <p class="unselectable" style="text-align: left; margin: 0; padding: 0; font-size: 14px; height: 20px;">List Instrument:</p>
+                    <div class="container" style="display: flex; height: 100%;">
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 30%;">
+                            <p class="unselectable" style="color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0; overflow: hidden;">Symbols | tickSizes</p>
+                            <div class="tblSearch"></div>
+                        </div>
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 70%; overflow: hidden;">
+                            <div class="partOfCoef" style=" height: 100%;">
+                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">First symbol: <span class='instrumentsAdded unselectable' id="FSVERS1"></span><span class='unselectable' style="visibility: hidden;"></span></p>
+                                <div style="height: 15px;"></div>
+                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">Second symbol: <span class='instrumentsAdded unselectable' id="FSVERS2"></span><span class='unselectable' style="visibility: hidden;" id="FSVERS2_2"></span></p>
+                                
+                                <div class="unselectable askVers" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 248px)); width: calc(70% - 8px);; height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Are the tick values of the 1st and the 2nd instrument equivalent with the same position volume?</div>
+                                <div class="unselectable yesVers" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw - 1px), calc(100vh - 208px)); width: calc(35% - 6px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Yes</div>
+                                <div class="unselectable noVers" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 208px)); width: calc(35vw - 5px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">No</div>
+                                
+                                <div class="NoInput_Vers_Div" style="position: absolute; right: 0; top: 0; transform: translate(-7px, calc(100vh - 208px)); width: calc(35vw - 9px); height: 38px; margin: 0; padding: 0; display: none;">
+                                    <input class="NoInput_Vers" type="text" placeholder="Ratio of tick values..." style="height: 100%; width: calc(35vw - 9px); color: white; background: darkred; border: none; font-size: 14px; font-family: cursive; text-align: center;">
+                                </div>
+                                
+                                <div class="unselectable ASKBTN_VERS" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw + 43px), calc(100vh - 208px)); width: 40px; height: 34px; border-radius: 10px;  text-align: center; overflow: hidden; display: none; margin: 0; padding: 0; color: white;"><p style="margin-top: -0.1rem; padding:0; margin-left: -0.3rem; font-size: 20px;"><b>?</b></p></div>
+                                
+                                <div class="radioBlockTimeFrames unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 165px)); width: calc(70% - 8px); background: darkred; text-align: center; height: 40px; overflow: hidden;">
+                                   <label for="radioTimeFrame3" style="font-size: 14px; font-weight: normal; margin-left: 2rem;">m1</label>
+                                    <input type="radio" class="radioVers" name="radioTimeFrame3" value="1" checked>
+                                    <label for="radioTimeFrame3" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">m5</label>
+                                    <input type="radio" class="radioVers" name="radioTimeFrame3" value="5">
+                                    <label for="radioTimeFrame3" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">m15</label>
+                                    <input type="radio" class="radioVers" name="radioTimeFrame3" value="15">
+                                    <label for="radioTimeFrame3" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">h1</label>
+                                    <input type="radio" class="radioVers" name="radioTimeFrame3" value="60">
+                                    <label for="radioTimeFrame3" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">h4</label>
+                                    <input type="radio" class="radioVers" name="radioTimeFrame3" value="240">
+                                    <label for="radioTimeFrame3" style="font-size: 14px; font-weight: normal; margin-left: 1rem;">d1</label>
+                                    <input type="radio" class="radioVers" name="radioTimeFrame3" value="1440">
+                                </div>
+                                
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 122px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
+                                    <input class="inputVers_02" id="inputVers_02" type="text" placeholder="Period for calculating correlation coefficients (Specify the number of bars)" style="height: 100%; width: 100%; color: white; background: darkred; border: none; font-size: 14px; font-family: cursive; padding-left: 1rem;">
+                                </div>
+                                
+                                <div class="btnSpreadVers unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 77px)); width: calc(70% - 8px); background: darkgreen; text-align: center; height: 40px; overflow: hidden;  margin: 0; padding: 0;">To build</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        
+        <div class="resss">
+            <h1><center>Resources:</center></h1>
+            <div><a href="https://www.cmegroup.com/market-data/daily-bulletin.html" target="_blank">Daily Bulletin on Option Trading CME</a></div>
+                <div><a href="https://www.forexfactory.com/calendar" target="_blank">Economic calendar</a></div>
+                <div><a href="https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm" target="_blank">CFTC reports</a></div>
+                <div><a href="https://www1.oanda.com/lang/ru/forex-trading/analysis/forex-order-book" target="_blank">Forex order book from OANDA</a></div>
+                <div><a href="https://www.moex.com/ru/derivatives/" target="_blank">Futures forts. Instrument specifications and trading results.</a></div>
+                <div><a href="https://www.moex.com/ru/derivatives/open-positions.aspx" target="_blank">Open positions in derivative financial instruments of the Russian market</a></div>
+                <div><a href="https://finviz.com/" target="_blank">FINVIZ</a></div>
+                <div><a href="https://smart-lab.ru/" target="_blank">SMART-LAB</a></div>
+                <div><a href="https://www.nasdaq.com/market-activity/stock-splits" target="_blank">Stock Splits Calendar</a></div>
+                <div><a href="https://www.bloomberg.com/" target="_blank">BLOOMBERG</a></div>
+                <div><a href="https://www.iposcoop.com/ipo-calendar/" target="_blank">Ipo Scoop</a></div>
+                <div><a href="https://www.insider-monitor.com/insider_stock_trading_report.html" target="_blank">Insider Monitor</a></div>
+                <div><a href="http://thestockmarketwatch.com/markets/pre-market/today.aspx" target="_blank">The Stock Market Watch</a></div>
+        </div>
+        
+<!--        Кнопка загрузки котировок-->
+        <div class="btnDatasDownload">SYNCHRONIZE WITH TERMINALS</div>
+<!--        Невидимое поле для того чтобы из него поместить в буфер обмена-->
+        <input type="text" id="copyField">
+        
+        <div class="unselectable downloadPrograms_desc"><div class="downloadPrograms_descBTN"><p>D<br>O<br>W<br>N<br>L<br>O<br>A<br>D<br>S</p></div><div class="unselectable downloadPrograms_btn"><p style="margin-left: -0.2rem; margin-top: 0; padding-top: 0; ">X</p></div></div>
+        
+    </div>
+    <div id="darkSheet_09"></div>
+    <div id="cubikSheet" data-state="0"></div>
+    
+    <div class="statusMessage"><p></p></div>
+    
+    <div class="windows8">
+        <div class="wBall" id="wBall_1">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_2">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_3">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_4">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_5">
+            <div class="wInnerBall"></div>
+        </div>
+    </div>
+    <div class="noneSheet"></div>
+    
+    <div class="topSheet unselectable">
+        <!-- <div class="topSheetBtn" id="topSheetBtn_00"><p>MAIN</p></div> -->
+    </div>
+   
+    <noscript><div style="position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; overflow: hidden; text-align: centerl; background: black; color: white; text-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow;"><p style="height: 1rem; width: 100vw; margin-top: 50vh; text-align: center;">To display content you need to enable javascript...</p></div></noscript>
+    
+    <script type="text/javascript" src="Detect.js/detect.js"></script>
+    <script type="text/javascript" src="jQuery/jQuery.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/cube.js"></script>
+    <script type="text/javascript" src="js/platform.js"></script>
+    <script type="text/javascript" src="js/sendMail.js"></script>
+    <script type="text/javascript" src="js/messAlert.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</body>
+</html>
