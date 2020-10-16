@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------------- УСТАНОВКА ШРИФТОВ: */
+
+@font-face {
+    font-family: 'Gloria Hallelujah';
+    src: url(../font/GloriaHallelujah-Regular.ttf);
+}
+
+html, body{
+    font-family: 'Gloria Hallelujah', serif, sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#bg_01, #bg_02{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    overflow: hidden;
+}
+#bg_01{
+    background: url("../img/bg/kisa_01.jpg") no-repeat bottom center;
+    display: block;
+}
+#bg_02{
+    background: url("../img/bg/kisa_02.jpg") no-repeat bottom center;
+    display: none;
+}
+
+
+/* ЗАПРЕТ НА ВЫДЕЛЕНИЕ ТЕКСТА: */
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+#btn_10:hover{
+    cursor: pointer;
+}
+
+#btn_10{
+    opacity: 80%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display: block;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    left: 0;
+    top: 0;
+    -webkit-transform: translate(calc(50vw - 50px), -50px) rotate(45deg);
+        -ms-transform: translate(calc(50vw - 50px), -50px) rotate(45deg);
+            transform: translate(calc(50vw - 50px), -50px) rotate(45deg);
+    text-align: center;
+    -webkit-animation: hideBNTS 1s linear alternate infinite;
+            animation: hideBNTS 1s linear alternate infinite;
+    -webkit-transition: -webkit-transform 0.1s linear;
+    transition: -webkit-transform 0.1s linear;
+    -o-transition: transform 0.1s linear;
+    transition: transform 0.1s linear;
+    transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+    z-index: 9999;
+}
+
+#btn_10 p{
+    margin: 0;
+    padding-right: 0.5rem;
+    padding-top: 3rem;
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+
+
+@-webkit-keyframes hideBNTS{
+    from{
+        background: white;
+        color :black;
+    }
+    to{
+        background: black;
+        color: white;
+    }
+}
+
+@keyframes hideBNTS{
+    from{
+        background: white;
+        color :black;
+    }
+    to{
+        background: black;
+        color: white;
+    }
+}
+/* ------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------ ЗАТЕМНЯЮЩИЙ СЛОЙ: */
+
+#darkSheet_07{
+    opacity: 80%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    -webkit-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+    color: white;
+    overflow: hidden;
+    
+}
+
+/* ------------------------------------------------------------------------------------ */
+
+
+.statusMessage{
+    position: absolute;
+    width: 300px;
+    height: auto;
+    left: calc(50% - 150px);
+    top: calc(50% - 50px);
+    background: white;
+    text-align: center;
+    color: black;
+    display: none;
+    -webkit-transition: opacity 0.5s ease-out;
+    -o-transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out;
+    z-index: 11000;
+    padding: 0;
+    opacity: 0;
+}
+
+.statusMessage p{
+    font-weight: bold;
+}

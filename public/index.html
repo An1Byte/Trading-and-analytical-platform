@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Кластерные графики, графики объемов, арбитраж, мультиграфики, построение синтетических инструментов..."/>
+    <meta name="keywords" content="invizzz, объемы форекс, биржевой арбитраж, биржевые данные, кластерный график, мультиграфик,
+forex volumes"/>
+    <title>INVIZZZ =^_^= EXPLORER</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/platform.css">
+    <link rel="stylesheet" href="css/Sheets.css">
+    <link rel="stylesheet" href="css/loaderWin8.css">
+    <link rel="shortcut icon" href="favicon.iso">
+</head>
+<body>
+   
+   <div id="myDiv" class="charts"></div>
+   
+   <div class="flex-container_01">
+            
+            <div class="screenShort"></div>
+            <div class="buy"><p>BUY</p></div>
+            <div class="sell"><p>SELL</p></div>
+            <div class="A"><p>A</p></div>
+            <div class="MA"><p>MA</p></div>
+            <div class="hlevel"></div>
+            <div class="vlevel"></div>
+            <div class="rect"></div>
+            <div class="text"><p>TEXT</p></div>
+            <div class="tglevel"><p>RULER</p></div>
+            <div class="Grab"><p>&lt; = &gt;</p></div>
+            <div class="del1"></div>
+            <div class="delall"></div>
+            <div class="scrin"></div>
+            <div class="online"></div>
+       </div>
+   
+   <!-- StatusBar: -->
+        <div class="statusBar-flex">
+            <div class="comeback"></div>
+            <p><span class="spanID_01" style="font-family: sans-serif;"></span><span class="spanID_02"></span><span class="spanID_03"></span><span class="spanID_04"></span></p>
+        </div>
+   
+    <!-- Блок основного меню: -->
+    <div id="bg_01"></div>
+    <div id="bg_02"></div>
+    <div class="global_btnList unselectable" id="btn_10" data-flag="0"><p>Charts</p></div>
+    <div id="darkSheet_07">
+    
+<!--      ToolsBar:-->
+       
+        <div class="startMenu">
+            <!-- Меню платформы: -->
+            <div class="volume"></div>
+            <div class="resources"></div>
+            <div class="arb"></div>
+            <div class="mult"></div>
+            <div class="arb_on"></div>
+            <div class="arb_versions"></div>
+        </div>
+        
+        
+
+        <!-- Мультиграфик!!!: -->
+        <div class="multSheet">
+                <div style="height: calc(100% - 30px);">
+                    <p class="unselectable" style="text-align: left; margin: 0; padding: 0; font-size: 14px; height: 20px;">List Instrument:</p>
+                    <div class="container" style="display: flex; height: calc(100% - 48px);">
+                        <div style="border: 1px solid white; margin: 2px; height: calc(100% + 48px); width: 50%;">
+                            <p class="unselectable" style="color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0; overflow: hidden;">Symbols | Terminal name | Brocker name | Tick size | Time frame</p>
+                            <div class="tblSearch"></div>
+                        </div>
+                        <div style="border: 1px solid white; margin: 2px; height: calc(100% - 42px); width: 50%; overflow: hidden;">
+                            <p class="tblHeader unselectable" style="margin: 0; padding: 0; color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0; overflow: hidden;">Added Symbols</p>
+                            <div class="tblSearch2"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-2px - 20px), calc(100vh - 122px)); width: calc(50% - 24px); height: 40px; margin: 0; padding: 0;">
+                        <input class="inputDataMult" type="text" placeholder="Enter the number of bars to build multiplot..." style="height: 100%; width: 100%; font-size: 14px; font-family: cursive; color: white; background: darkred; border: none; padding-left: 1rem;">
+                    </div>
+                    <div class="btnMult" style="position: absolute; right: 0; top: 0; transform: translate(-2px, calc(100vh - 77px)); width: calc(50% - 4px); background: darkgreen; text-align: center; height: 40px; overflow: hidden;  margin: 0; padding: 0;">To build</div>
+                </div>
+        </div>
+
+        <!-- Арбитраж - онлайн!!!: -->
+        <div class="arbOnlineSheet" style="margin: 0; padding: 0;"> 
+                <div style="height: calc(100% - 30px);">
+                    <p class="unselectable" style="text-align: left; margin: 0; padding: 0; font-size: 14px; height: 20px;">List Instrument:</p>
+                    <div class="container" style="display: flex; height: 100%;">
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 30%;">
+                            <p class="unselectable" style="color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0;" overflow: hidden;>Symbols | Terminal name | Brocker name | Tick size | Time frame</p>
+                            <div class="tblSearch"></div>
+                        </div>
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 70%; overflow: hidden;">
+                            <div class="partOfCoef" style=" height: 100%;">
+                                <p class ="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">First symbol: <span class='instrumentsAdded unselectable' id="FSON1"></span></p>
+                                <div style="height: 15px;"></div>
+                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">Second symbol: <span class='instrumentsAdded unselectable' id="FSON2"></span></p>
+                                
+                                <div class="unselectable askOn" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 339px)); width: calc(70% - 8px);; height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Are the tick values of the 1st and the 2nd instrument equivalent with the same position volume?</div>
+                                <div class="unselectable yesOn" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw - 2px), calc(100vh - 296px)); width: calc(35% - 7px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Yes</div>
+                                <div class="unselectable noOn" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 296px)); width: calc(35vw - 5px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">No</div>
+                                
+                                <div class="NoInput_On_Div" style="position: absolute; right: 0; top: 0; transform: translate(-7px, calc(100vh - 296px)); width: calc(35vw - 9px); height: 34px; margin: 0; padding: 0; display: none;">
+                                    <input class="NoInput_On" type="text" placeholder="Ratio of tick values..." style="height: 100%; width: 100%; color: white; background: darkred; border: none; font-size: 14px; font-family: cursive; text-align: center;">
+                                </div>
+                                
+                                <div class="unselectable ASKBTN_ON" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw + 43px), calc(100vh - 296px)); width: 40px; height: 34px; border-radius: 10px;  text-align: center; overflow: hidden; display: none; margin: 0; padding: 0; color: white;"><p style="margin-top: -0.1rem; padding:0; margin-left: -0.3rem; font-size: 20px;"><b>?</b></p></div>
+                                
+                                
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 253px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
+                                    <input class="inputOnline_01" id="inputOnline_01" type="text" placeholder="Contango/backwardation ratio for the first instrument" style="height: 100%; color: white; width: 100%; background: darkred; border: none; font-size: 14px; font-family: cursive; padding-left: 1rem;">
+                                </div>
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 208px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
+                                    <input class="inputOnline_02" id="inputOnline_02" type="text" placeholder="Contango/backwardation ratio for the second instrument" style="height: 100%; width: 100%; color: white; font-size: 14px; font-family: cursive; background: darkred; border: none; padding-left: 1rem;">
+                                </div>
+                                
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 163px)); width: calc(70% - 28px); height: 38px; margin: 0; padding: 0;">
+                                    <input class="inputOnline_03" id="inputOnline_03" type="text" placeholder="Enter the number of bars to calculate the coefficient..." style="height: 100%; width: 100%; color: white; font-size: 14px; font-family: cursive; background: darkred; border: none; padding-left: 1rem;">
+                                </div>
+
+                                <div class="btnKoefOnline" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 120px)); width: calc(70% - 8px); background: darkred; text-align: center; height: 40px; overflow: hidden;">Calculate odds automatically</div>
+                                <div class="btnSpreadOnline unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 77px)); width: calc(70% - 8px); background: darkgreen; text-align: center; height: 40px; overflow: hidden;  margin: 0; padding: 0;">To build</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        
+        <!-- Арбитраж - оффлайн!!!: -->
+        <div class="arbOfflineSheet">
+                <div style="height: calc(100% - 30px);">
+                    <p class="unselectable" style="text-align: left; margin: 0; padding: 0; font-size: 14px; height: 20px;">List Instrument:</p>
+                    <div class="container" style="display: flex; height: 100%;">
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 30%;">
+                            <p class="unselectable" style="color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0; overflow: hidden;">Symbols | Terminal name | Brocker name | Tick size | Time frame</p>
+                            <div class="tblSearch"></div>
+                        </div>
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 70%; overflow: hidden;">
+                            <div class="partOfCoef" style=" height: 100%;">
+                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">First symbol: <span class='instrumentsAdded unselectable' id="FSOFF1"></span></p>
+                                <div style="height: 15px;"></div>
+                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">Second symbol: <span class='instrumentsAdded unselectable' id="FSOFF2"></span></p>
+                                
+                                <div class="unselectable askOff" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 339px)); width: calc(70% - 8px);; height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Are the tick values of the 1st and the 2nd instrument equivalent with the same position volume?</div>
+                                <div class="unselectable yesOff" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw - 1px), calc(100vh - 296px)); width: calc(35% - 6px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Yes</div>
+                                <div class="unselectable noOff" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 296px)); width: calc(35vw - 5px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">No</div>
+                                
+                                <div class="NoInput_Off_Div" style="position: absolute; right: 0; top: 0; transform: translate(-9px, calc(100vh - 296px)); width: calc(35vw - 11px); height: 38px; margin: 0; padding: 0; display: none;">
+                                    <input class="NoInput_Off" type="text" placeholder="Ratio of tick values..." style="height: 100%; width: calc(35vw - 9px); color: white; background: darkred; border: none; font-size: 14px; font-family: cursive; text-align: center;">
+                                </div>
+                                
+                                <div class="unselectable ASKBTN_OFF" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw + 43px), calc(100vh - 296px)); width: 40px; height: 34px; border-radius: 10px;  text-align: center; overflow: hidden; display: none; margin: 0; padding: 0; color: white;"><p style="margin-top: -0.3rem; padding:0; margin-left: -0.3rem; font-size: 20px;"><b>?</b></p></div>
+                                
+                                
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 253px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
+                                    <input class="inputOffline_01" id="inputOffline_01" type="text" placeholder="Contango/backwardation ratio for the first instrument" style="height: 100%; color: white; width: 100%; background: darkred; border: none; font-size: 14px; font-family: cursive; padding-left: 1rem;">
+                                </div>
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 208px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
+                                    <input class="inputOffline_02" id="inputOffline_02" type="text" placeholder="Contango/backwardation ratio for the second instrument" style="height: 100%; width: 100%; color: white; font-size: 14px; font-family: cursive; background: darkred; border: none; padding-left: 1rem;">
+                                </div>
+                                
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 163px)); width: calc(70% - 28px); height: 38px; margin: 0; padding: 0;">
+                                    <input class="inputOffline_03" id="inputOffline_03" type="text" placeholder="Enter the number of bars to calculate the coefficient..." style="height: 100%; width: 100%; color: white; font-size: 14px; font-family: cursive; background: darkred; border: none; padding-left: 1rem;">
+                                </div>
+                                
+                                <div class="btnKoefOffline unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 120px)); width: calc(70% - 8px); background: darkred; text-align: center; height: 40px; overflow: hidden;">Calculate odds automatically</div>
+                                <div class="btnSpreadOffline unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 77px)); width: calc(70% - 8px); background: darkgreen; text-align: center; height: 40px; overflow: hidden;  margin: 0; padding: 0;">To build</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        
+        <!--
+        <div class="arbVersionsSheet">
+                <div style="height: calc(100% - 30px);">
+                    <p class="unselectable" style="text-align: left; margin: 0; padding: 0; font-size: 14px; height: 20px;">List Instrument:</p>
+                    <div class="container" style="display: flex; height: 100%;">
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 30%;">
+                            <p class="unselectable" style="color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0; overflow: hidden;">Symbols | Terminal name | Brocker name | Tick size | Time frame</p>
+                            <div class="tblSearch"></div>
+                        </div>
+                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 70%; overflow: hidden;">
+                            <div class="partOfCoef" style=" height: 100%;">
+                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">First symbol: <span class='instrumentsAdded unselectable' id="FSVERS1"></span></p>
+                                <div style="height: 15px;"></div>
+                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">Second symbol: <span class='instrumentsAdded unselectable' id="FSVERS2"></span></p>
+                                
+                                <div class="unselectable askVers" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 208px)); width: calc(70% - 8px);; height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Are the tick values of the 1st and the 2nd instrument equivalent with the same position volume?</div>
+                                <div class="unselectable yesVers" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw - 1px), calc(100vh - 165px)); width: calc(35% - 6px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Yes</div>
+                                <div class="unselectable noVers" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 165px)); width: calc(35vw - 5px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">No</div>
+                                
+                                <div class="NoInput_Vers_Div" style="position: absolute; right: 0; top: 0; transform: translate(-7px, calc(100vh - 165px)); width: calc(35vw - 9px); height: 38px; margin: 0; padding: 0; display: none;">
+                                    <input class="NoInput_Vers" type="text" placeholder="Ratio of tick values..." style="height: 100%; width: calc(35vw - 9px); color: white; background: darkred; border: none; font-size: 14px; font-family: cursive; text-align: center;">
+                                </div>
+                                
+                                <div class="unselectable ASKBTN_VERS" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw + 43px), calc(100vh - 165px)); width: 40px; height: 34px; border-radius: 10px;  text-align: center; overflow: hidden; display: none; margin: 0; padding: 0; color: white;"><p style="margin-top: -0.1rem; padding:0; margin-left: -0.3rem; font-size: 20px;"><b>?</b></p></div>
+                                
+                                
+                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 122px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
+                                    <input class="inputVers_02" id="inputVers_02" type="text" placeholder="Period for calculating correlation coefficients (Specify the number of bars)" style="height: 100%; width: 100%; color: white; background: darkred; border: none; font-size: 14px; font-family: cursive; padding-left: 1rem;">
+                                </div>
+                                
+                                <div class="btnSpreadVers unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 77px)); width: calc(70% - 8px); background: darkgreen; text-align: center; height: 40px; overflow: hidden;  margin: 0; padding: 0;">To build</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        -->
+        <div class="resss">
+            <h1><center>Resources:</center></h1>
+            <div><a href="https://www.cmegroup.com/market-data/daily-bulletin.html" target="_blank">Daily Bulletin on Option Trading CME</a></div>
+                <div><a href="https://www.forexfactory.com/calendar" target="_blank">Economic calendar</a></div>
+                <div><a href="https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm" target="_blank">CFTC reports</a></div>
+                <div><a href="https://www1.oanda.com/lang/ru/forex-trading/analysis/forex-order-book" target="_blank">Forex order book from OANDA</a></div>
+                <div><a href="https://www.moex.com/ru/derivatives/" target="_blank">Futures forts. Instrument specifications and trading results.</a></div>
+                <div><a href="https://www.moex.com/ru/derivatives/open-positions.aspx" target="_blank">Open positions in derivative financial instruments of the Russian market</a></div>
+                <div><a href="https://finviz.com/" target="_blank">FINVIZ</a></div>
+                <div><a href="https://smart-lab.ru/" target="_blank">SMART-LAB</a></div>
+                <div><a href="https://www.nasdaq.com/market-activity/stock-splits" target="_blank">Stock Splits Calendar</a></div>
+                <div><a href="https://www.bloomberg.com/" target="_blank">BLOOMBERG</a></div>
+                <div><a href="https://www.iposcoop.com/ipo-calendar/" target="_blank">Ipo Scoop</a></div>
+                <div><a href="https://www.insider-monitor.com/insider_stock_trading_report.html" target="_blank">Insider Monitor</a></div>
+                <div><a href="http://thestockmarketwatch.com/markets/pre-market/today.aspx" target="_blank">The Stock Market Watch</a></div>
+        </div>
+    </div>
+    
+    <div class="statusMessage"><p></p></div>
+    
+    <div class="windows8">
+        <div class="wBall" id="wBall_1">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_2">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_3">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_4">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_5">
+            <div class="wInnerBall"></div>
+        </div>
+    </div>
+    <div class="noneSheet"></div>
+   
+    <noscript><div style="position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; overflow: hidden; text-align: centerl; background: black; color: white; text-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow;"><p style="height: 1rem; width: 100vw; margin-top: 50vh; text-align: center;">To display content you need to enable javascript...</p></div></noscript>
+    
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script type="text/javascript" src="Detect.js/detect.js"></script>
+    <script type="text/javascript" src="jQuery/jQuery.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/messAlert.js"></script>
+    <script type="text/javascript" src="js/platform.js"></script>
+</body>
+</html>

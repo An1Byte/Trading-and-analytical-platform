@@ -1,0 +1,409 @@
+.flex-container_01{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 9998;
+    background: black;
+    opacity: 75%;
+    overflow-y: hidden;
+}
+
+/* ЗАПРЕТ НА ВЫДЕЛЕНИЕ ТЕКСТА: */
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*------------------------------*/
+
+
+/* --------------- Tool Bar: ---------------- */
+.comeback{
+    width: 30px;
+    height: 30px;
+    background: url("../img/icons/back_01.png") no-repeat center;
+    opacity: 80%;
+}
+
+.comeback:hover{
+    cursor: pointer;
+    background: url("../img/icons/back_01_02.png") no-repeat center;
+}
+
+.A p:hover, .screenShort:hover, .scrin:hover, .MA p:hover, .Grab p:hover, .hlevel:hover, .tglevel p:hover, .vlevel:hover, .del1:hover, .text p:hover, .rect:hover, .online:hover, .buy p:hover, .sell p:hover, .delall:hover{
+    cursor: pointer;
+    background-color: blue;
+}
+
+.screenShort{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.66%;
+    height: 4.75%;
+    background: url("../img/icons/screenShort.png") no-repeat center;
+    opacity: 80%;
+}
+
+.scrin{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 7.69%;
+    height: 4.75%;
+    background: url("../img/icons/screen.png") no-repeat center;
+    opacity: 80%;
+}
+
+.delall{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.66%;
+    height: 4.75%;
+    background: url("../img/icons/delall.png") no-repeat center;
+    opacity: 80%;
+}
+
+.hlevel{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.66%;
+    height: 4.75%;
+    background: url("../img/icons/hline.png") no-repeat center;
+}
+
+.vlevel{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.66%;
+    height: 4.75%;
+    background: url("../img/icons/vline.png") no-repeat center;
+}
+
+.del1{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.66%;
+    height: 4.75%;
+    background: url("../img/icons/del1.png") no-repeat center;
+}
+
+.rect{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.66%;
+    height: 4.75%;
+    background: url("../img/icons/rect.png") no-repeat center;
+}
+
+
+.sell, .text, .buy, .MA, .Grab, .tglevel, .A{
+    width: 6.66%;
+    height: 40px;
+    background: black;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+.sell p, .buy p, .MA p, .Grab p, .tglevel p, .A p{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.text p{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+
+.online{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.66%;
+    height: 4.75%;
+    background: url("../img/icons/online_02.png") no-repeat center;
+}
+/* -------------------------------------- */
+/* --------------- Body: ---------------- */
+
+@-webkit-keyframes anime_Volume{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+}
+
+@keyframes anime_Volume{
+    from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    20%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    30%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+    }
+    40%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    50%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    60%{
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+    }
+    70%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+}
+
+.volume:hover, .mult:hover, .resources:hover, .arb:hover, .arb_on:hover, .arb_versions:hover{
+    cursor: pointer;
+    color: white;
+    animation: paused;
+}
+
+.volume{
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    height: 55%;
+    width: calc(40% + 4px);
+    background: url("../img/btns/volumeConnector.png")  no-repeat center;
+    overflow: hidden;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_Volume 5s ease-out 1s infinite;
+            animation: anime_Volume 5s ease-out 1s infinite;
+}
+.volume:hover{
+    background: url("../img/btns/volumeConnector2.png")  no-repeat center;
+}
+
+.resources{
+    position: absolute;
+    left: 4px;
+    top: calc(55% + 8px);
+    height: calc(45% - 38px);
+    width: calc(40% + 4px);
+    background: url("../img/btns/resources.png") no-repeat center;
+    overflow: hidden;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_Volume 5s ease-out 3s infinite;
+            animation: anime_Volume 5s ease-out 3s infinite;
+}
+.resources:hover{
+    background: url("../img/btns/resources2.png") no-repeat center;
+}
+
+.arb{
+    position: absolute;
+    left: calc(40% + 12px);
+    top: 4px;
+    height: 35%;
+    width: 30%;
+    background: url("../img/btns/offline.png")  no-repeat center;
+    overflow: hidden;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_Volume 5s ease-out 3s infinite;
+            animation: anime_Volume 5s ease-out 3s infinite;
+}
+.arb:hover{
+    background: url("../img/btns/offline2.png")  no-repeat center;
+}
+
+.mult{
+    position: absolute;
+    left: calc(40% + 12px);
+    top: calc(35% + 8px);
+    height: calc(65% - 38px);
+    width: 30%;
+    background: url("../img/btns/multiCharts.png")  no-repeat center;
+    overflow: hidden;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_Volume 5s ease-out 1s infinite;
+            animation: anime_Volume 5s ease-out 1s infinite;
+}
+.mult:hover{
+    background: url("../img/btns/multiCharts2.png")  no-repeat center;
+}
+
+.arb_on{
+    position: absolute;
+    left: calc(70% + 16px);
+    top: 4px;
+    height: calc(100% - 38px);
+    width: calc(30% - 20px);
+    background: url("../img/btns/online.png") no-repeat center;
+    overflow: hidden;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: anime_Volume 5s ease-out 7s infinite;
+            animation: anime_Volume 5s ease-out 7s infinite;
+}
+.arb_on:hover{
+    background: url("../img/btns/online2.png")  no-repeat center;
+}
+
+
+/* -------------------------------------- */
+/* --------------- Status Bar: ---------- */
+
+.statusBar-flex{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    height: 35px;
+    width: 100%;
+    background: black;
+    opacity: 75%;
+    z-index: 9998;
+}
+.statusBar-flex p{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: bold;
+    
+}
+.statusBar-flex p .spanID_01{
+    margin-left: 1rem;
+    color: red;
+}
+
+.statusBar-flex p .spanID_02, .statusBar-flex p{
+    color: grey;
+}
+
+.statusBar-flex p.spanID_03{
+    color: lime;
+}
+.statusBar-flex p .spanID_04{
+    color: orangered;
+}
+
+.instruments {
+    color: grey;
+    text-align: left;
+    font-family: "serif";
+    font-size: 16px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1.5rem;
+    margin-right: 0;
+    overflow: hidden;
+    height: 1.5rem;
+    width: 100%;
+}
+
+.instrumentsAdded, .instrumentsAddedMult{
+    color: lime;
+    text-align: left;
+    font-size: 14px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    margin-right: 0;
+    height: 20px;
+    width: 100%;
+}
+
+
+.multLineEdit{
+    height: 100%;
+    width: 75%;
+    color: white;
+    font-size: 14px;
+    font-family: cursive;
+    background: darkred;
+    padding-left: 0.5rem;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 1rem;
+}
+
+.instruments:hover{
+    cursor: pointer;
+    color: white;
+}
+
+.instrumentsAdded:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.instrumentsAddedMult:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.charts{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 40px;
+    width: 100%;
+    height: calc(100% - 75px);
+    background: black;
+    opacity: 97%;
+    z-index: 9998;
+}

@@ -1,0 +1,159 @@
+/*--------------- СЛОИ ПЕРЕХОДОВ: ----------------------*/
+
+.multSheet{
+    height: calc(100% - 30px);
+    width: 100%;
+    background: black;
+    opacity: 80%;
+    overflow: hidden;
+    display: none;
+}
+
+/*
+.arbVersionsSheet{
+    height: calc(100% - 30px);
+    width: 100%;
+    background: black;
+    opacity: 80%;
+    overflow: hidden;
+    display: none;
+}
+*/
+
+.resss{
+    height: calc(100% - 30px);
+    width: 100%;
+    background: black;
+    opacity: 80%;
+    overflow: hidden;
+    display: none;
+    text-align: center;
+}
+
+.resss a{
+    color: lightblue;
+    font-weight: bold;
+}
+.resss a:hover{
+    color: lime;
+}
+
+.arbOnlineSheet{
+    width: 100%;
+    height: calc(100% - 30px);
+    background: black;
+    opacity: 80%;
+    overflow: hidden;
+    display: none;
+}
+
+.arbOfflineSheet{
+    width: 100%;
+    height: calc(100% - 30px);
+    background: black;
+    opacity: 80%;
+    overflow: hidden;
+    display: none;
+}
+
+/* --------------------------------------------------------- */
+
+.arbOnlineSheet .arbOnlineSheetDescript{
+    overflow-y: scroll;
+}
+
+.arbOnlineSheet .arbOnlineSheetDescript::-webkit-scrollbar{
+    width: 0px;
+}
+
+.tblSearch{
+    padding-top: 0;
+    padding-bottom: 1rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 85%;
+}
+
+.tblSearch2{
+    padding-top: 0;
+    padding-bottom: 1rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 85%;
+    width: 100%;
+}
+
+.tblSearch::-webkit-scrollbar, .tblSearch2::-webkit-scrollbar{
+    width: 5px;
+    background-color: black;
+}
+.tblSearch::-webkit-scrollbar-thumb, .tblSearch2::-webkit-scrollbar-thumb{
+    background-color: red;
+}
+
+
+.partOfCoef{
+    overflow: hidden;
+}
+
+.partOfCoef::-webkit-scrollbar{
+    width: 0px;
+}
+
+.btnKoefOnline:hover, .btnKoefOnline:hover, .btnKoefOffline:hover, .btnKoefOffline:hover{
+    cursor: pointer;
+    background: red !important;
+}
+
+.btnSpreadOnline:hover, .btnSpreadOffline:hover, .btnMult:hover, btnSpreadVers:hover{
+    cursor: pointer;
+    background-color: lime !important;
+}
+
+
+.inputOnline_01:hover, .inputOffline_01:hover, .inputOnline_02:hover, .inputOffline_02:hover, .inputVers_01:hover, .inputVers_02:hover, .inputDataMult:hover, .inputOnline_03:hover, .inputOffline_03:hover{
+    cursor: text;
+}
+.inputOnline_01::-webkit-input-placeholder, .inputOffline_01::-webkit-input-placeholder, .inputOnline_02::-webkit-input-placeholder, .inputOffline_02::-webkit-input-placeholder, .inputDataMult::-webkit-input-placeholder, .inputOnline_03::-webkit-input-placeholder, .inputOffline_03::-webkit-input-placeholder{
+    color: silver;
+    font-style: italic;
+}
+.inputOnline_01::-moz-placeholder, .inputOffline_01::-moz-placeholder, .inputOnline_02::-moz-placeholder, .inputOffline_02::-moz-placeholder, .inputDataMult::-moz-placeholder, .inputOnline_03::-moz-placeholder, .inputOffline_03::-moz-placeholder{
+    color: silver;
+    font-style: italic;
+}
+.inputOnline_01:-ms-input-placeholder, .inputOffline_01:-ms-input-placeholder, .inputOnline_02:-ms-input-placeholder, .inputOffline_02:-ms-input-placeholder, .inputDataMult:-ms-input-placeholder, .inputOnline_03:-ms-input-placeholder, .inputOffline_03:-ms-input-placeholder{
+    color: silver;
+    font-style: italic;
+}
+.inputOnline_01::-ms-input-placeholder, .inputOffline_01::-ms-input-placeholder, .inputOnline_02::-ms-input-placeholder, .inputOffline_02::-ms-input-placeholder, .inputDataMult::-ms-input-placeholder, .inputOnline_03::-ms-input-placeholder, .inputOffline_03::-ms-input-placeholder, .inputOnline_03::placeholder, .inputOffline_03::placeholder{
+    color: silver;
+    font-style: italic;
+}
+.inputOnline_01::placeholder, .inputOffline_01::placeholder, .inputOnline_02::placeholder, .inputOffline_02::placeholder, .inputDataMult::placeholder, .inputOnline_03::placeholder, .inputOffline_03::placeholder{
+    color: silver;
+    font-style: italic;
+}
+
+
+.yesOn:hover, .noOn:hover, .yesOff:hover, .noOff:hover{
+    cursor:pointer;
+    color: lime !important;
+}
+
+.ASKBTN_ON:hover, .ASKBTN_OFF:hover{
+    cursor: pointer;
+    text-shadow: 0px 0px 5px white;
+}
+
+.noneSheet{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 50%;
+    z-index: 9997;
+}
