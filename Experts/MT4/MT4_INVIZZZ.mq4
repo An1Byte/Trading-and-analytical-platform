@@ -1,4 +1,4 @@
-﻿//+------------------------------------------------------------------+
+//+------------------------------------------------------------------+
 //|                                                  MT4_INVIZZZ.mq4 |
 //|                                          https://www.invizzz.com |
 //+------------------------------------------------------------------+
@@ -40,27 +40,20 @@ int OnInit() {
     diff = mqlDateTimeStructureDiff.hour;
     diff = (TimeGMT() < TimeLocal()) ? diff : -diff;
     // ------------------------------------------------------------------ //
-
-    // Создание файла List_ с инструментом(ами):
-    int fin_List = FileOpen("Invizzz/List.txt", FILE_READ);
-    if (fin_List != INVALID_HANDLE) {
-        FileClose(fin_List); // Файл уже был создан.
-        // Поэтому добавим к нему новый инструмент:
+    
+    while(true){
         int fout_List = FileOpen("Invizzz/List.txt", FILE_READ | FILE_WRITE);
         if (fout_List != INVALID_HANDLE) {
             FileSeek(fout_List, 0, SEEK_END);
             FileWrite(fout_List, instrument.instrumentName + addDescript + "#" + instrument.tSize + "#" + IntegerToString(instrument.tFrame));
             FileClose(fout_List);
+            break;
+        }
+        else{
+            Sleep(100);
         }
     }
-    else {
-        int fout_List = FileOpen("Invizzz/List.txt", FILE_WRITE);
-        if (fout_List != INVALID_HANDLE) {
-            FileWrite(fout_List, instrument.instrumentName + addDescript + "#" + instrument.tSize + "#" + IntegerToString(instrument.tFrame));
-            FileClose(fout_List);
-        }
-    }
-
+    
     // Создание файла ордерс:
     int fin_Orders = FileOpen("Invizzz/Orders.txt", FILE_READ);
     if (fin_Orders != INVALID_HANDLE) {
