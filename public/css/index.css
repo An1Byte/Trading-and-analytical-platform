@@ -49,6 +49,61 @@ html, body{
 }
 
 
+
+
+/* ------------ УСТАНОВКА АДАПТИВНОГО МЕНЮ: */
+
+@media (min-width: 0px) and (max-width: 1-23px)  {
+    .volume{
+        background: url("../img/btns/multiCharts.png") no-repeat center;
+    }
+}
+
+@media (min-width: 1024px) {
+    transform: scale(1);
+}
+
+/*
+@media (min-width : 200px)  {
+    .volume{
+        transform: scale(0.5);
+        background: url("../img/btns/volumeConnector.png")  no-repeat center;
+    }
+}
+@media (min-width : 400px)  {
+    .volume{
+        transform: scale(1);
+        background: url("../img/btns/volumeConnector.png")  no-repeat center;
+    }
+}
+*/
+/*
+@media (min-width : 400px) {
+    html{
+        background: url("../img/bg/kisa_320x480.jpg") no-repeat;
+        -moz-background-size: 100%;
+        -webkit-background-size: 100%;
+        -o-background-size: 100%;
+        background-size: 100%;
+        overflow: hidden;
+    }
+}
+
+@media (min-width : 360px)  {
+    html{
+        background: url("../img/bg/kisa_360x640.jpg") no-repeat;
+        -moz-background-size: 100%;
+        -webkit-background-size: 100%;
+        -o-background-size: 100%;
+        background-size: 100%;
+        overflow: hidden;
+    }
+}
+*/
+
+/* ------------------------------------------------ */
+
+
 #btn_10:hover{
     cursor: pointer;
 }

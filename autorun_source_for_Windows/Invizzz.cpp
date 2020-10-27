@@ -19,4 +19,8 @@ int main(int argc, char ** argv){
 	ShowWindow(hWnd2, SW_HIDE);
 	
 	return 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 339dc0617013a96dcb600ea62e7c696e365ce129

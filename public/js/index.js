@@ -50,12 +50,14 @@ $("#btn_10").click(function(){ // Charts button
         $(".flex-container_01").css("display", "flex");
         $(".charts").css("display", "block");
         $("#btn_10").css("transform", "translate(calc(50vw - 50px), -100px) rotate(45deg)");
+        $(".statusBar-flex").css("opacity", "97%");
     }
     else{
         $("#btn_10").attr("data-flag", "0");
         $(".flex-container_01").css("display", "none");
         $(".charts").css("display", "none");
         $("#btn_10").css("transform", "translate(calc(50vw - 50px), -50px) rotate(45deg)");
+        $(".statusBar-flex").css("opacity", "50%");
     }
 });
 
