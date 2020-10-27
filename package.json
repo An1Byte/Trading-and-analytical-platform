@@ -1,0 +1,13 @@
+{
+  "name": "in-server",
+  "version": "0.0.0",
+  "description": "InServer",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "plotly.js-dist": "^1.56.0"
+  }
+}
