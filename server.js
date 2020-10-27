@@ -6,7 +6,7 @@ const fs = require("fs");
 const http = require('http');
 const port = process.env.PORT || 8080;
 
-let List = ""; // Переменная, которая хранит в себе весь текст всех файлов List.txt
+let List = ""; // ГЏГҐГ°ГҐГ¬ГҐГ­Г­Г Гї, ГЄГ®ГІГ®Г°Г Гї ГµГ°Г Г­ГЁГІ Гў Г±ГҐГЎГҐ ГўГҐГ±Гј ГІГҐГЄГ±ГІ ГўГ±ГҐГµ ГґГ Г©Г«Г®Гў List.txt
 let tempList = "";
 let Files_wasBeEqual = true;
 
@@ -94,7 +94,7 @@ function recurrentReading(n, max) {
                 resolve("ERROR");
             }
 
-            // Считываем файлы с историей по инструменту под индексом n:
+            // Г‘Г·ГЁГІГ»ГўГ ГҐГ¬ ГґГ Г©Г«Г» Г± ГЁГ±ГІГ®Г°ГЁГҐГ© ГЇГ® ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГі ГЇГ®Г¤ ГЁГ­Г¤ГҐГЄГ±Г®Г¬ n:
             fs.readFile(tempAddr + "\\" + jsonObj.List[n] + ".txt", "utf8", (err, History) => {
                 if (err) {
                     console.log("Error #6: " + err.message);
@@ -626,7 +626,7 @@ function start_GUI() {
         };
         let jsonObjListLength = 0;
         if (List != "") {
-            // Определяем список инструментов:
+            // ГЋГЇГ°ГҐГ¤ГҐГ«ГїГҐГ¬ Г±ГЇГЁГ±Г®ГЄ ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ®Гў:
             let temp = "";
             for (let i = 0; i < List.length; ++i) {
                 if (List[i] != "\n" && List[i] != "\r") {
@@ -641,7 +641,7 @@ function start_GUI() {
             }
 
             if (Files_wasBeEqual == false) {
-                // ------------------- Собираем историю по всем инструментам:
+                // ------------------- Г‘Г®ГЎГЁГ°Г ГҐГ¬ ГЁГ±ГІГ®Г°ГЁГѕ ГЇГ® ГўГ±ГҐГ¬ ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ Г¬:
                 
                 recurrentReading(0, jsonObj.List.length).then(
                     resolve => {
@@ -670,7 +670,7 @@ function start_GUI() {
     
     app.post("/getCurrentBars", function (req, res) {
         if (List != "") {
-            // Определяем список инструментов:
+            // ГЋГЇГ°ГҐГ¤ГҐГ«ГїГҐГ¬ Г±ГЇГЁГ±Г®ГЄ ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ®Гў:
             let temp = "";
             jsonObjZeroBars = {
                 "List": [],
@@ -735,7 +735,7 @@ function start_GUI() {
 }
 
 
-// Функция, которая будет завершать работу скрипта в нормальном  и аварийном состоянии:
+// Г”ГіГ­ГЄГ¶ГЁГї, ГЄГ®ГІГ®Г°Г Гї ГЎГіГ¤ГҐГІ Г§Г ГўГҐГ°ГёГ ГІГј Г°Г ГЎГ®ГІГі Г±ГЄГ°ГЁГЇГІГ  Гў Г­Г®Г°Г¬Г Г«ГјГ­Г®Г¬  ГЁ Г ГўГ Г°ГЁГ©Г­Г®Г¬ Г±Г®Г±ГІГ®ГїГ­ГЁГЁ:
 function QuitThisServer() {
     fs.exists("./Files/List.txt", (bf) => {
         if (bf) {
@@ -744,12 +744,12 @@ function QuitThisServer() {
             });
         }
         else {
-            process.exit(1); // Встроенный модуль process завершает работу сервера преждевременно.
+            process.exit(1); // Г‚Г±ГІГ°Г®ГҐГ­Г­Г»Г© Г¬Г®Г¤ГіГ«Гј process Г§Г ГўГҐГ°ГёГ ГҐГІ Г°Г ГЎГ®ГІГі Г±ГҐГ°ГўГҐГ°Г  ГЇГ°ГҐГ¦Г¤ГҐГўГ°ГҐГ¬ГҐГ­Г­Г®.
         }
     });
 }
 
-// Функция рекурсивного считывания файлов List.txt по заданным путям:
+// Г”ГіГ­ГЄГ¶ГЁГї Г°ГҐГЄГіГ°Г±ГЁГўГ­Г®ГЈГ® Г±Г·ГЁГІГ»ГўГ Г­ГЁГї ГґГ Г©Г«Г®Гў List.txt ГЇГ® Г§Г Г¤Г Г­Г­Г»Г¬ ГЇГіГІГїГ¬:
 let tempPanArrayLength = 0;
 function readingLists(index, maxIndex, arrPath) {
     return new Promise((resolve, reject) => {
@@ -782,7 +782,7 @@ function readingLists(index, maxIndex, arrPath) {
                                 Files_wasBeEqual = false;
                                 console.log("tempList != List !!!");
 
-                                // Перезаписываем файл List:
+                                // ГЏГҐГ°ГҐГ§Г ГЇГЁГ±Г»ГўГ ГҐГ¬ ГґГ Г©Г« List:
                                 fs.writeFile("./Files/List.txt", tempList, () => {
                                     List = tempList;
                                 });
@@ -807,27 +807,27 @@ function readingLists(index, maxIndex, arrPath) {
 }
 
  
-fs.exists("./Files/Paths_to_Invizzz.txt", (bF) => { // Асинхронная проверка файла на предмет его существования... 
-        if (!bF) { // Если файл не существует, то его необходимо создать и завершить работу сервера.
+fs.exists("./Files/Paths_to_Invizzz.txt", (bF) => { // ГЂГ±ГЁГ­ГµГ°Г®Г­Г­Г Гї ГЇГ°Г®ГўГҐГ°ГЄГ  ГґГ Г©Г«Г  Г­Г  ГЇГ°ГҐГ¤Г¬ГҐГІ ГҐГЈГ® Г±ГіГ№ГҐГ±ГІГўГ®ГўГ Г­ГЁГї... 
+        if (!bF) { // Г…Г±Г«ГЁ ГґГ Г©Г« Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ, ГІГ® ГҐГЈГ® Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® Г±Г®Г§Г¤Г ГІГј ГЁ Г§Г ГўГҐГ°ГёГЁГІГј Г°Г ГЎГ®ГІГі Г±ГҐГ°ГўГҐГ°Г .
             console.log("---    The /File/Paths_to_terminals.txt isn't exist (log #1)");
             fs.writeFile("./Files/Paths_to_Invizzz.txt", "", (err) => {
                 if (err) {
                     console.log("---    Error: Error of writing in the Paths_to_terminals.txt (log #2)");
-                    // Завершение работы сервера:
+                    // Г‡Г ГўГҐГ°ГёГҐГ­ГЁГҐ Г°Г ГЎГ®ГІГ» Г±ГҐГ°ГўГҐГ°Г :
                     QuitThisServer();
                 }
                 else {
-                    // Завершение работы сервера:
+                    // Г‡Г ГўГҐГ°ГёГҐГ­ГЁГҐ Г°Г ГЎГ®ГІГ» Г±ГҐГ°ГўГҐГ°Г :
                     QuitThisServer();
                 }
             });
         }
         else {
-            // Считываем файл Paths_to_Invizzz.txt:
+            // Г‘Г·ГЁГІГ»ГўГ ГҐГ¬ ГґГ Г©Г« Paths_to_Invizzz.txt:
             fs.readFile("./Files/Paths_to_Invizzz.txt", "utf8", (err, datas) => {
                 if (err) {
                     console.log("---    Error: Couldn't read the ./Files/Paths_to_Invizzz.txt (log #3)");
-                    // Завершение работы сервера:
+                    // Г‡Г ГўГҐГ°ГёГҐГ­ГЁГҐ Г°Г ГЎГ®ГІГ» Г±ГҐГ°ГўГҐГ°Г :
                     QuitThisServer();
                 }
                 else {
@@ -836,7 +836,7 @@ fs.exists("./Files/Paths_to_Invizzz.txt", (bF) => { // Асинхронная проверка файл
                     //paths = new TextDecoder("utf8").decode(uint8Array); // from Uint8Array To String
                     //console.log(paths);
 
-                    let arrayPaths = []; // Абсолютные пути к папке Invizzz
+                    let arrayPaths = []; // ГЂГЎГ±Г®Г«ГѕГІГ­Г»ГҐ ГЇГіГІГЁ ГЄ ГЇГ ГЇГЄГҐ Invizzz
                     let arrayPathsLength = 0;
                     let temp = "";
                     for (let i = 0; i < paths.length; ++i) {
@@ -852,9 +852,9 @@ fs.exists("./Files/Paths_to_Invizzz.txt", (bF) => { // Асинхронная проверка файл
                     }
                     console.log(arrayPaths[0]);
                     console.log(arrayPaths[1]);
-                        start_GUI(); // Запускаем сервер.
+                        start_GUI(); // Г‡Г ГЇГіГ±ГЄГ ГҐГ¬ Г±ГҐГ°ГўГҐГ°.
 
-                        setInterval(() => { // Таймер для перезаписи массива с инструментами List...
+                        setInterval(() => { // Г’Г Г©Г¬ГҐГ° Г¤Г«Гї ГЇГҐГ°ГҐГ§Г ГЇГЁГ±ГЁ Г¬Г Г±Г±ГЁГўГ  Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ Г¬ГЁ List...
                             tempList = "";
 
                             readingLists(0, arrayPaths.length - 1, arrayPaths).then(

@@ -29,57 +29,46 @@ arrayState[0] = 0;
 // -------------------------------------------------------------------------------
 // Functions:
 function messToStatus(str){
-    if(!timeoutVar){
-        $(".statusBar-flex p .spanID_02").text(str);
-        timeoutVar = setTimeout(function(){$(".statusBar-flex p .spanID_02").text(""); timeoutVar = false;}, 5000);
-    }
-    else{
-        clearTimeout(timeoutVar);
-        $(".statusBar-flex p .spanID_02").text(str);
-        timeoutVar = setTimeout(function(){$(".statusBar-flex p .spanID_02").text(""); timeoutVar = false;}, 5000);
-    }
+    setTimeout(()=>{
+        if(!timeoutVar){
+            $(".statusBar-flex p .spanID_02").text(str);
+            timeoutVar = setTimeout(function(){$(".statusBar-flex p .spanID_02").text(""); timeoutVar = false;}, 5000);
+        }
+        else{
+            clearTimeout(timeoutVar);
+            $(".statusBar-flex p .spanID_02").text(str);
+            timeoutVar = setTimeout(function(){$(".statusBar-flex p .spanID_02").text(""); timeoutVar = false;}, 5000);
+        }
+    }, 0);
 }
 
 function messToStatus3(str){
-    if(!timeoutVar){
-        $(".statusBar-flex p .spanID_03").text(str);
-        timeoutVar3 = setTimeout(function(){$(".statusBar-flex p .spanID_03").text(""); timeoutVar3 = false;}, 5000);
-    }
-    else{
-        clearTimeout(timeoutVar);
-        $(".statusBar-flex p .spanID_03").text(str);
-        timeoutVar3 = setTimeout(function(){$(".statusBar-flex p .spanID_03").text(""); timeoutVar3 = false;}, 5000);
-    }
+    setTimeout(()=>{
+        if(!timeoutVar3){
+            $(".statusBar-flex p .spanID_03").text(str);
+            timeoutVar3 = setTimeout(function(){$(".statusBar-flex p .spanID_03").text(""); timeoutVar3 = false;}, 5000);
+        }
+        else{
+            clearTimeout(timeoutVar3);
+            $(".statusBar-flex p .spanID_03").text(str);
+            timeoutVar3 = setTimeout(function(){$(".statusBar-flex p .spanID_03").text(""); timeoutVar3 = false;}, 5000);
+        }
+    }, 0);
 }
 function messToStatus4(str){
-    if(!timeoutVar){
-        $(".statusBar-flex p .spanID_04").text(str);
-        timeoutVar4 = setTimeout(function(){$(".statusBar-flex p .spanID_04").text(""); timeoutVar4 = false;}, 5000);
-    }
-    else{
-        clearTimeout(timeoutVar);
-        $(".statusBar-flex p .spanID_04").text(str);
-        timeoutVar4 = setTimeout(function(){$(".statusBar-flex p .spanID_04").text(""); timeoutVar4 = false;}, 5000);
-    }
+    setTimeout(()=>{
+        if(!timeoutVar4){
+            $(".statusBar-flex p .spanID_04").text(str);
+            timeoutVar4 = setTimeout(function(){$(".statusBar-flex p .spanID_04").text(""); timeoutVar4 = false;}, 5000);
+        }
+        else{
+            clearTimeout(timeoutVar4);
+            $(".statusBar-flex p .spanID_04").text(str);
+            timeoutVar4 = setTimeout(function(){$(".statusBar-flex p .spanID_04").text(""); timeoutVar4 = false;}, 5000);
+        }
+    }, 0);
 }
 // -------------------------------------------------------------------------------
-
-/* Инициализируем запрет на выделение текста: */
-$(".MA").addClass("unselectable");
-$(".text").addClass("unselectable");
-$(".volume").addClass("unselectable");
-$(".arb").addClass("unselectable");
-$(".arb_on").addClass("unselectable");
-$(".mult").addClass("unselectable");
-$(".resources").addClass("unselectable");
-$(".statusBar-flex").addClass("unselectable");
-$(".arbOnline").addClass("unselectable");
-$(".arbOffline").addClass("unselectable");
-$(".buy").addClass("unselectable");
-$(".sell").addClass("unselectable");
-$(".Grab").addClass("unselectable");
-$(".tglevel").addClass("unselectable");
-/* ------------------------------------------ */
 
 // Делаем элементы туулс бара невидимыми, так как на старте работы они не нужны, оставляем только нужные:
 $(".flex-container_01").css("display", "none");
@@ -661,14 +650,33 @@ $(".arbOnlineSheet .btnSpreadOnline").click(function(){
         let instrName_02 = $(".arbOnlineSheet div div div #FSON2").text();
         let koef_01 = $(".arbOnlineSheet .inputOnline_01").val();
         let koef_02 = $(".arbOnlineSheet .inputOnline_02").val();
-        let period = $(".arbOnlineSheet .inputOnline_03").val();
+        
+        $(".comeback").click();
+        
+        $(".screenShort").css("width", "6.24%");
+        $(".scrin").css("width", "6.24%");
+        $(".Grab").css("width", "6.24%");
+        $(".hlevel").css("width", "6.24%");
+        $(".tglevel").css("width", "6.24%");
+        $(".vlevel").css("width", "6.24%");
+        $(".del1").css("width", "6.24%");
+        $(".text").css("width", "6.24%");
+        $(".rect").css("width", "6.24%");
+        $(".online").css("width", "6.24%");
+        $(".delall").css("width", "6.24%");
+        $(".Cross").css("width", "6.24%");
+        $(".optBtn").css("width", "6.24%");
+        
+        $(".A").css("display", "block");
+        $(".buy").css("display", "block");
+        $(".sell").css("display", "block");
         
         if(OKNO == 1){
-           BUILD_ONLINE(instrName_01, instrName_02, koef_01, koef_02, period, 1);
+           BUILD_ONLINE(instrName_01, instrName_02, koef_01, koef_02, 1);
         }
         else{
-           let divide = $("").val();
-           BUILD_ONLINE(instrName_01, instrName_02, koef_01, koef_02, period, divide);
+           let divide = $(".NoInput_On").val();
+           BUILD_ONLINE(instrName_01, instrName_02, koef_01, koef_02, divide);
         }
     }
 });
@@ -681,14 +689,40 @@ $(".arbOfflineSheet .btnSpreadOffline").click(function(){
         let instrName_02 = $(".arbOfflineSheet div div div #FSOFF2").text();
         let koef_01 = $(".arbOfflineSheet .inputOffline_01").val();
         let koef_02 = $(".arbOfflineSheet .inputOffline_02").val();
-        let period = $(".arbOfflineSheet .inputOffline_03").val();
+        
+        if($(".arbOfflineSheet .inputOffline_01").val() == ""){
+            koef_01 = 1.0;
+        }
+        if($(".arbOfflineSheet .inputOffline_02").val() == ""){
+            koef_02 = 1.0;
+        }
+        
+        $(".comeback").click();
+        
+        $(".screenShort").css("width", "6.24%");
+        $(".scrin").css("width", "6.24%");
+        $(".Grab").css("width", "6.24%");
+        $(".hlevel").css("width", "6.24%");
+        $(".tglevel").css("width", "6.24%");
+        $(".vlevel").css("width", "6.24%");
+        $(".del1").css("width", "6.24%");
+        $(".text").css("width", "6.24%");
+        $(".rect").css("width", "6.24%");
+        $(".online").css("width", "6.24%");
+        $(".delall").css("width", "6.24%");
+        $(".Cross").css("width", "6.24%");
+        $(".optBtn").css("width", "6.24%");
+        
+        $(".A").css("display", "block");
+        $(".buy").css("display", "block");
+        $(".sell").css("display", "block");
         
         if(OKNO == 1){
-           BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, period, 1);
+           BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, 1);
         }
         else{
-           let divide = $("").val();
-           BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, period, divide);
+           let divide = $(".NoInput_Off").val();
+           BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, divide);
         }
     }
 });
@@ -732,7 +766,30 @@ $(".multSheet .btnMult").click(function(){
                     }
                 }
                 
+                $(".comeback").click();
+                
+                $(".A").css("display", "none");
+                $(".buy").css("display", "none");
+                $(".sell").css("display", "none");
+                
+                //.A:hover, .screenShort:hover, .scrin:hover .Grab:hover, .hlevel:hover, .tglevel:hover, .vlevel:hover, .del1:hover, .text:hover, //.rect:hover, .online:hover, .buy:hover, .sell:hover, .delall:hover, .Cross:hover, .optBtn:hover
+
+                $(".screenShort").css("width", "7.69%");
+                $(".scrin").css("width", "7.69%");
+                $(".Grab").css("width", "7.69%");
+                $(".hlevel").css("width", "7.69%");
+                $(".tglevel").css("width", "7.69%");
+                $(".vlevel").css("width", "7.69%");
+                $(".del1").css("width", "7.69%");
+                $(".text").css("width", "7.69%");
+                $(".rect").css("width", "7.69%");
+                $(".online").css("width", "7.69%");
+                $(".delall").css("width", "7.69%");
+                $(".Cross").css("width", "7.69%");
+                $(".optBtn").css("width", "7.69%");
+                
                 BUILD_MULT(arrNames, arrPriceOfTicks, comeBack);
+                
             }
         }
     }

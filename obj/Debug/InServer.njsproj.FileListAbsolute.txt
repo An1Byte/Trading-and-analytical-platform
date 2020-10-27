@@ -1,0 +1,3 @@
+C:\MyProjects\VisualStudio\InServer\obj\Debug\InServer.njsprojAssemblyReference.cache
+C:\MyProjects\VisualStudio\InServer\obj\Debug\InServer.njsproj.CoreCompileInputs.cache
+C:\MyProjects\VisualStudio\InServer\bin\Microsoft.NodejsTools.WebRole.dll

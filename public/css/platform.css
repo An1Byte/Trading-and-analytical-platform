@@ -7,7 +7,8 @@
     height: 40px;
     z-index: 9998;
     background: black;
-    opacity: 75%;
+    opacity: 97%;
+    border-bottom: 2px darkslategray solid;
     overflow-y: hidden;
 }
 
@@ -34,15 +35,24 @@
     background: url("../img/icons/back_01_02.png") no-repeat center;
 }
 
-.A p:hover, .screenShort:hover, .scrin:hover, .MA p:hover, .Grab p:hover, .hlevel:hover, .tglevel p:hover, .vlevel:hover, .del1:hover, .text p:hover, .rect:hover, .online:hover, .buy p:hover, .sell p:hover, .delall:hover{
+.A:hover, .screenShort:hover, .scrin:hover .Grab:hover, .hlevel:hover, .tglevel:hover, .vlevel:hover, .del1:hover, .text:hover, .rect:hover, .online:hover, .buy:hover, .sell:hover, .delall:hover, .Cross:hover, .optBtn:hover{
     cursor: pointer;
     background-color: blue;
+}
+
+.optBtn{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.24%;
+    height: 4.75%;
+    background: url("../img/icons/Options.png") no-repeat center;
+    opacity: 80%;
 }
 
 .screenShort{
     padding-top: 38px;
     overflow: hidden;
-    width: 6.66%;
+    width: 6.24%;
     height: 4.75%;
     background: url("../img/icons/screenShort.png") no-repeat center;
     opacity: 80%;
@@ -51,7 +61,7 @@
 .scrin{
     padding-top: 38px;
     overflow: hidden;
-    width: 7.69%;
+    width: 6.24%;
     height: 4.75%;
     background: url("../img/icons/screen.png") no-repeat center;
     opacity: 80%;
@@ -60,7 +70,7 @@
 .delall{
     padding-top: 38px;
     overflow: hidden;
-    width: 6.66%;
+    width: 6.24%;
     height: 4.75%;
     background: url("../img/icons/delall.png") no-repeat center;
     opacity: 80%;
@@ -69,7 +79,7 @@
 .hlevel{
     padding-top: 38px;
     overflow: hidden;
-    width: 6.66%;
+    width: 6.24%;
     height: 4.75%;
     background: url("../img/icons/hline.png") no-repeat center;
 }
@@ -77,7 +87,7 @@
 .vlevel{
     padding-top: 38px;
     overflow: hidden;
-    width: 6.66%;
+    width: 6.24%;
     height: 4.75%;
     background: url("../img/icons/vline.png") no-repeat center;
 }
@@ -85,7 +95,7 @@
 .del1{
     padding-top: 38px;
     overflow: hidden;
-    width: 6.66%;
+    width: 6.24%;
     height: 4.75%;
     background: url("../img/icons/del1.png") no-repeat center;
 }
@@ -93,40 +103,67 @@
 .rect{
     padding-top: 38px;
     overflow: hidden;
-    width: 6.66%;
+    width: 6.24%;
     height: 4.75%;
     background: url("../img/icons/rect.png") no-repeat center;
 }
 
-
-.sell, .text, .buy, .MA, .Grab, .tglevel, .A{
-    width: 6.66%;
-    height: 40px;
-    background: black;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
+.sell{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.24%;
+    height: 4.75%;
+    background: url("../img/icons/sell.png") no-repeat center;
 }
-.sell p, .buy p, .MA p, .Grab p, .tglevel p, .A p{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+.buy{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.24%;
+    height: 4.75%;
+    background: url("../img/icons/buy.png") no-repeat center;
+}
+.A{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.24%;
+    height: 4.75%;
+    background: url("../img/icons/autoT.png") no-repeat center;
 }
 
-.text p{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    color: red;
+.text{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.24%;
+    height: 4.75%;
+    background: url("../img/icons/Text.png") no-repeat center;
+}
+.Grab{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.24%;
+    height: 4.75%;
+    background: url("../img/icons/Grabing.png") no-repeat center;
+}
+.tglevel{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.24%;
+    height: 4.75%;
+    background: url("../img/icons/Ruler.png") no-repeat center;
+}
+
+.Cross{
+    padding-top: 38px;
+    overflow: hidden;
+    width: 6.24%;
+    height: 4.75%;
+    background: url("../img/icons/Perecr.png") no-repeat center;
 }
 
 .online{
     padding-top: 38px;
     overflow: hidden;
-    width: 6.66%;
+    width: 6.24%;
     height: 4.75%;
     background: url("../img/icons/online_02.png") no-repeat center;
 }
@@ -203,104 +240,218 @@
     }
 }
 
-.volume:hover, .mult:hover, .resources:hover, .arb:hover, .arb_on:hover, .arb_versions:hover{
-    cursor: pointer;
-    color: white;
-    animation: paused;
+/*АДАПТИВНОЕ МЕНЮ:*/
+@media (min-width: 300px) and (max-width: 1023px)  {
+    .volume{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: calc(50% - 17px);
+        width: 33.3%;
+        background: url("../img/btns/V1_min.png")  no-repeat center;
+        overflow: hidden;
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation: anime_Volume 5s ease-out 1s infinite;
+                animation: anime_Volume 5s ease-out 1s infinite;
+    }
+    .volume:hover{
+        background: url("../img/btns/V2_min.png")  no-repeat center;
+        cursor: pointer;
+        animation: paused;
+    }
+    
+    .resources{
+        position: absolute;
+        left: 0;
+        top: calc(50% - 17px);
+        height: calc(50% - 19px);
+        width: 33.3%;
+        background: url("../img/btns/Res1_min.png") no-repeat center;
+        overflow: hidden;
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation: anime_Volume 5s ease-out 3s infinite;
+                animation: anime_Volume 5s ease-out 3s infinite;
+    }
+    .resources:hover{
+        background: url("../img/btns/Res2_min.png") no-repeat center;
+        cursor: pointer;
+        animation: paused;
+    }
+
+    .arb{
+        position: absolute;
+        left: 33.3%;
+        top: 0;
+        height: calc(50% - 17px);
+        width: 33.3%;
+        background: url("../img/btns/Off1_min.png")  no-repeat center;
+        overflow: hidden;
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation: anime_Volume 5s ease-out 3s infinite;
+                animation: anime_Volume 5s ease-out 3s infinite;
+    }
+    .arb:hover{
+        background: url("../img/btns/Off2_min.png")  no-repeat center;
+        cursor: pointer;
+        animation: paused;
+    }
+
+    .mult{
+        position: absolute;
+        left: 33.3%;
+        top: calc(50% - 17px);
+        height: calc(50% - 19px);
+        width: 33.3%;
+        background: url("../img/btns/Mult1_min.png")  no-repeat center;
+        overflow: hidden;
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation: anime_Volume 5s ease-out 1s infinite;
+                animation: anime_Volume 5s ease-out 1s infinite;
+    }
+    .mult:hover{
+        background: url("../img/btns/Mult2_min.png")  no-repeat center;
+        cursor: pointer;
+        animation: paused;
+    }
+
+    .arb_on{
+        position: absolute;
+        left: 66.6%;
+        top: 0;
+        height: calc(100% - 35px);
+        width: 33.3%;
+        background: url("../img/btns/On1_min.png") no-repeat center;
+        overflow: hidden;
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation: anime_Volume 5s ease-out 7s infinite;
+                animation: anime_Volume 5s ease-out 7s infinite;
+    }
+    .arb_on:hover{
+        background: url("../img/btns/On2_min.png")  no-repeat center;
+        cursor: pointer;
+        animation: paused;
+    }
+    
 }
 
-.volume{
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    height: 55%;
-    width: calc(40% + 4px);
-    background: url("../img/btns/volumeConnector.png")  no-repeat center;
-    overflow: hidden;
-    -webkit-transform-origin: center center;
-        -ms-transform-origin: center center;
-            transform-origin: center center;
-    -webkit-animation: anime_Volume 5s ease-out 1s infinite;
-            animation: anime_Volume 5s ease-out 1s infinite;
-}
-.volume:hover{
-    background: url("../img/btns/volumeConnector2.png")  no-repeat center;
-}
+@media (min-width: 1024px) {
+    .volume{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: calc(50% - 17px);
+        width: 33.3%;
+        background: url("../img/btns/volumeConnector.png")  no-repeat center;
+        overflow: hidden;
+            transform: scale(1);
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation: anime_Volume 5s ease-out 1s infinite;
+                animation: anime_Volume 5s ease-out 1s infinite;
+    }
+    .volume:hover{
+        background: url("../img/btns/volumeConnector2.png")  no-repeat center;
+        cursor: pointer;
+        animation: paused;
+    }
+    
+    .resources{
+        position: absolute;
+        left: 0;
+        top: calc(50% - 17px);
+        height: calc(50% - 19px);
+        width: 33.3%;
+        background: url("../img/btns/resources.png") no-repeat center;
+        overflow: hidden;
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation: anime_Volume 5s ease-out 3s infinite;
+                animation: anime_Volume 5s ease-out 3s infinite;
+    }
+    .resources:hover{
+        background: url("../img/btns/resources2.png") no-repeat center;
+        cursor: pointer;
+        animation: paused;
+    }
 
-.resources{
-    position: absolute;
-    left: 4px;
-    top: calc(55% + 8px);
-    height: calc(45% - 38px);
-    width: calc(40% + 4px);
-    background: url("../img/btns/resources.png") no-repeat center;
-    overflow: hidden;
-    -webkit-transform-origin: center center;
-        -ms-transform-origin: center center;
-            transform-origin: center center;
-    -webkit-animation: anime_Volume 5s ease-out 3s infinite;
-            animation: anime_Volume 5s ease-out 3s infinite;
-}
-.resources:hover{
-    background: url("../img/btns/resources2.png") no-repeat center;
-}
+    .arb{
+        position: absolute;
+        left: 33.3%;
+        top: 0;
+        height: calc(50% - 17px);
+        width: 33.3%;
+        background: url("../img/btns/offline.png")  no-repeat center;
+        overflow: hidden;
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation: anime_Volume 5s ease-out 3s infinite;
+                animation: anime_Volume 5s ease-out 3s infinite;
+    }
+    .arb:hover{
+        background: url("../img/btns/offline2.png")  no-repeat center;
+        cursor: pointer;
+        animation: paused;
+    }
 
-.arb{
-    position: absolute;
-    left: calc(40% + 12px);
-    top: 4px;
-    height: 35%;
-    width: 30%;
-    background: url("../img/btns/offline.png")  no-repeat center;
-    overflow: hidden;
-    -webkit-transform-origin: center center;
-        -ms-transform-origin: center center;
-            transform-origin: center center;
-    -webkit-animation: anime_Volume 5s ease-out 3s infinite;
-            animation: anime_Volume 5s ease-out 3s infinite;
-}
-.arb:hover{
-    background: url("../img/btns/offline2.png")  no-repeat center;
-}
+    .mult{
+        position: absolute;
+        left: 33.3%;
+        top: calc(50% - 17px);
+        height: calc(50% - 19px);
+        width: 33.3%;
+        background: url("../img/btns/multiCharts.png")  no-repeat center;
+        overflow: hidden;
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation: anime_Volume 5s ease-out 1s infinite;
+                animation: anime_Volume 5s ease-out 1s infinite;
+    }
+    .mult:hover{
+        background: url("../img/btns/multiCharts2.png")  no-repeat center;
+        cursor: pointer;
+        animation: paused;
+    }
 
-.mult{
-    position: absolute;
-    left: calc(40% + 12px);
-    top: calc(35% + 8px);
-    height: calc(65% - 38px);
-    width: 30%;
-    background: url("../img/btns/multiCharts.png")  no-repeat center;
-    overflow: hidden;
-    -webkit-transform-origin: center center;
-        -ms-transform-origin: center center;
-            transform-origin: center center;
-    -webkit-animation: anime_Volume 5s ease-out 1s infinite;
-            animation: anime_Volume 5s ease-out 1s infinite;
+    .arb_on{
+        position: absolute;
+        left: 66.6%;
+        top: 0;
+        height: calc(100% - 35px);
+        width: 33.3%;
+        background: url("../img/btns/online.png") no-repeat center;
+        overflow: hidden;
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation: anime_Volume 5s ease-out 7s infinite;
+                animation: anime_Volume 5s ease-out 7s infinite;
+    }
+    .arb_on:hover{
+        background: url("../img/btns/online2.png")  no-repeat center;
+        cursor: pointer;
+        animation: paused;
+    }
+    
 }
-.mult:hover{
-    background: url("../img/btns/multiCharts2.png")  no-repeat center;
-}
-
-.arb_on{
-    position: absolute;
-    left: calc(70% + 16px);
-    top: 4px;
-    height: calc(100% - 38px);
-    width: calc(30% - 20px);
-    background: url("../img/btns/online.png") no-repeat center;
-    overflow: hidden;
-    -webkit-transform-origin: center center;
-        -ms-transform-origin: center center;
-            transform-origin: center center;
-    -webkit-animation: anime_Volume 5s ease-out 7s infinite;
-            animation: anime_Volume 5s ease-out 7s infinite;
-}
-.arb_on:hover{
-    background: url("../img/btns/online2.png")  no-repeat center;
-}
+/* ---------------------------------------------------------------------------- */
 
 
-/* -------------------------------------- */
+
+
 /* --------------- Status Bar: ---------- */
 
 .statusBar-flex{
@@ -313,7 +464,7 @@
     height: 35px;
     width: 100%;
     background: black;
-    opacity: 75%;
+    opacity: 50%;
     z-index: 9998;
 }
 .statusBar-flex p{
@@ -325,14 +476,14 @@
 }
 .statusBar-flex p .spanID_01{
     margin-left: 1rem;
-    color: red;
+    color: blueviolet;
 }
 
 .statusBar-flex p .spanID_02, .statusBar-flex p{
     color: grey;
 }
 
-.statusBar-flex p.spanID_03{
+.statusBar-flex p .spanID_03{
     color: lime;
 }
 .statusBar-flex p .spanID_04{
@@ -406,4 +557,125 @@
     background: black;
     opacity: 97%;
     z-index: 9998;
+}
+
+#GLOBALXXX_L{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background: red;
+    z-index: 99999;
+}
+
+#GLOBALXXX_T{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: red;
+    z-index: 99999;
+}
+
+#GLOBALXXX_R{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background: red;
+    z-index: 99999;
+}
+
+
+#GLOBALXXX_B{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: red;
+    z-index: 99999;
+}
+
+#GLOBAL_RULER{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border: 2px dotted red;
+    z-index: 99999;
+}
+
+#GLOBAL_RECT{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    background: darkred;
+    opacity: 50%;
+    z-index: 99999;
+}
+
+#Options{
+    position: absolute;
+    left: 0;
+    top: 40px;
+    padding-left: 2rem;
+    width: 70%;
+    height: calc(100% - 75px);
+    display: none;
+    z-index: 100000;
+    background: black;
+    opacity: 97%;
+/*    border: 2px darkred solid;*/
+    overflow-x: hidden;
+    overflow-y: scroll;
+    color: white;
+    font: 16px serif;
+    font-weight: normal;
+}
+#Options::-webkit-scrollbar{
+    width: 5px;
+    background-color: black;
+}
+#Options::-webkit-scrollbar-thumb{
+    background-color: red;
+}
+
+#accept_cancel{
+    display: flex;
+}
+#ACCEPT{
+    width: 200px;
+    height: 40px;
+    margin-left: calc(100% - 205px);
+    background: green;
+    text-align: center;
+    font-weight: bold;
+}
+#CANCEL{
+    width: 200px;
+    height: 40px;
+    background: darkred;
+    text-align: center;
+    font-weight: bold;
+}
+#ACCEPT:hover{
+    cursor: pointer;
+    background: lime;
+}
+#CANCEL:hover{
+    cursor: pointer;
+    background: red;
 }

@@ -14,37 +14,68 @@ forex volumes"/>
 </head>
 <body>
    
-   <div id="myDiv" class="charts"></div>
+  
+   
+   <div id="myDiv" class="charts">
+       <div id="GLOBALXXX_L"></div>
+       <div id="GLOBALXXX_T"></div>
+        <div id="GLOBALXXX_R"></div>
+        <div id="GLOBALXXX_B"></div>
+        
+        <div id="GLOBAL_RULER"></div>
+        <div id="GLOBAL_RECT"></div>
+   </div>
+   <div id="Options">
+     <p><center style="color: red; font-size: 22px"><b>Options</b></center></p>
+      <p style="color: red; font-size: 16px"><b>Options of Lots:</b></p>
+       <p><label for="inputFirst" title="Enter the lot considering the coeficient of instrument">Enter the lot for the first instrument:</label></p><p><input style="background: chartreuse;" id="inputFirst" type="text" value="0.01"></p>
+       <p><label for="inputSecond" title="Enter the lot considering the coeficient of instrument">Enter the lot for the second instrument:</label></p><p><input style="background: chartreuse;" id="inputSecond" type="text" value="0.01"></p>
+       <hr>
+       <p><label for="inputMinTarget" title="This will allow us to filter out deliberately unprofitable trades in which the cumulative spread and commissions exceed the expected return.">Enter the minimum profit you expect to receive from the trade:</label></p><p><input id="inputMinTarget" style="background: chartreuse;" type="text" value="5"></p>
+       <hr>
+       <br>
+       <p style="color: red; font-size: 16px"><b>Options of SMA:</b></p>
+       <p style="color: gray;"><i>Trading with the activated automatic trading mode will be carried out from far levels to the opposite of the near arithmetic mean. It is legal to superimpose far and near levels on top of each other, so just vary the percentages in the fields below to get the desired result.</i></p>
+       <p><label for="inputSMACheck">To build the next charts with SMA:</label><input style="background: chartreuse; margin-left: 1rem;" id="inputSMACheck" type="checkbox" checked></p>
+       <p><label for="inputPeriodSMA">Enter the period of SMA:</label></p><p><input id="inputPeriodSMA" style="background: chartreuse;" type="text" value="50"></p>
+       <p><label for="inputPirsent_01" title="The percentage is calculated relative to the arithmetic average volatility for the previous N bars. (Valid values are from 0 to 100) (N equel SMA period)">Enter the percentage for the first level parallel lines:</label></p><p><input id="inputPirsent_01" style="background: chartreuse;" type="text" value="35"></p>
+       <p><label for="inputPirsent_02" title="The percentage is calculated relative to the arithmetic average volatility for the previous N bars. (Valid values are from 0 to 100)  (N equel SMA period)">Enter the percentage for the second level parallel lines:</label></p><p><input id="inputPirsent_02" style="background: chartreuse;" type="text" value="70"></p>
+       <hr>
+       <div id="accept_cancel">
+           <div id="ACCEPT"><p>ACCEPT</p></div>
+           <div id="CANCEL"><p>CANCEL</p></div>
+       </div>
+   </div>
    
    <div class="flex-container_01">
-            
-            <div class="screenShort"></div>
-            <div class="buy"><p>BUY</p></div>
-            <div class="sell"><p>SELL</p></div>
-            <div class="A"><p>A</p></div>
-            <div class="MA"><p>MA</p></div>
-            <div class="hlevel"></div>
-            <div class="vlevel"></div>
-            <div class="rect"></div>
-            <div class="text"><p>TEXT</p></div>
-            <div class="tglevel"><p>RULER</p></div>
-            <div class="Grab"><p>&lt; = &gt;</p></div>
-            <div class="del1"></div>
-            <div class="delall"></div>
-            <div class="scrin"></div>
-            <div class="online"></div>
+            <div class="screenShort" title="Take picture"></div>
+            <div class="optBtn" title="Options"></div>
+            <div class="buy" title="Buy the syntetic"></div>
+            <div class="sell" title="Sell the syntetic"></div>
+            <div class="A" title="Automatic trading"></div>
+            <div class="hlevel" title="Draw a horizontal line"></div>
+            <div class="vlevel" title="Draw a vertival line"></div>
+            <div class="rect" title="Draw a rectangle"></div>
+            <div class="text" title="Draw a text"></div>
+            <div class="tglevel" title="Measure with a ruler"></div>
+            <div class="Grab" title="Use grab"></div>
+            <div class="Cross" title="Activate crosshair"></div>
+            <div class="del1" title="Remove one of drawed lines"></div>
+            <div class="delall" title="Remove all of drawed lines"></div>
+            <div class="scrin" title="Stabilization"></div>
+            <div class="online" title="Return to starting position"></div>
        </div>
    
    <!-- StatusBar: -->
         <div class="statusBar-flex">
-            <div class="comeback"></div>
+            <div class="comeback" title="Come back"></div>
             <p><span class="spanID_01" style="font-family: sans-serif;"></span><span class="spanID_02"></span><span class="spanID_03"></span><span class="spanID_04"></span></p>
         </div>
    
     <!-- Блок основного меню: -->
     <div id="bg_01"></div>
     <div id="bg_02"></div>
-    <div class="global_btnList unselectable" id="btn_10" data-flag="0"><p>Charts</p></div>
+    <div class="global_btnList unselectable" id="btn_10" data-flag="0"><p>Chart</p></div>
     <div id="darkSheet_07">
     
 <!--      ToolsBar:-->
@@ -56,7 +87,7 @@ forex volumes"/>
             <div class="arb"></div>
             <div class="mult"></div>
             <div class="arb_on"></div>
-            <div class="arb_versions"></div>
+<!--            <div class="arb_versions"></div>-->
         </div>
         
         
@@ -172,47 +203,11 @@ forex volumes"/>
                     </div>
                 </div>
         </div>
-        
-        <!--
-        <div class="arbVersionsSheet">
-                <div style="height: calc(100% - 30px);">
-                    <p class="unselectable" style="text-align: left; margin: 0; padding: 0; font-size: 14px; height: 20px;">List Instrument:</p>
-                    <div class="container" style="display: flex; height: 100%;">
-                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 30%;">
-                            <p class="unselectable" style="color: gray; text-align: left; font-size: 12px; font-weight: bold; margin-top: 0; padding: 0; overflow: hidden;">Symbols | Terminal name | Brocker name | Tick size | Time frame</p>
-                            <div class="tblSearch"></div>
-                        </div>
-                        <div style="border: 1px solid white; margin: 2px; height: 100%; width: 70%; overflow: hidden;">
-                            <div class="partOfCoef" style=" height: 100%;">
-                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">First symbol: <span class='instrumentsAdded unselectable' id="FSVERS1"></span></p>
-                                <div style="height: 15px;"></div>
-                                <p class="unselectable" style="text-align: left; font-size: 14px; margin: 0; padding-left: 1rem; height: 20px">Second symbol: <span class='instrumentsAdded unselectable' id="FSVERS2"></span></p>
-                                
-                                <div class="unselectable askVers" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 208px)); width: calc(70% - 8px);; height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Are the tick values of the 1st and the 2nd instrument equivalent with the same position volume?</div>
-                                <div class="unselectable yesVers" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw - 1px), calc(100vh - 165px)); width: calc(35% - 6px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">Yes</div>
-                                <div class="unselectable noVers" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 165px)); width: calc(35vw - 5px); height: 40px; margin: 0; padding: 0; background: darkred; text-align: center; overflow: hidden;">No</div>
-                                
-                                <div class="NoInput_Vers_Div" style="position: absolute; right: 0; top: 0; transform: translate(-7px, calc(100vh - 165px)); width: calc(35vw - 9px); height: 38px; margin: 0; padding: 0; display: none;">
-                                    <input class="NoInput_Vers" type="text" placeholder="Ratio of tick values..." style="height: 100%; width: calc(35vw - 9px); color: white; background: darkred; border: none; font-size: 14px; font-family: cursive; text-align: center;">
-                                </div>
-                                
-                                <div class="unselectable ASKBTN_VERS" style="position: absolute; right: 0; top: 0; transform: translate(calc(-35vw + 43px), calc(100vh - 165px)); width: 40px; height: 34px; border-radius: 10px;  text-align: center; overflow: hidden; display: none; margin: 0; padding: 0; color: white;"><p style="margin-top: -0.1rem; padding:0; margin-left: -0.3rem; font-size: 20px;"><b>?</b></p></div>
-                                
-                                
-                                <div style="position: absolute; right: 0; top: 0; transform: translate(calc(-3px - 20px), calc(100vh - 122px)); width: calc(70% - 28px); height: 40px; margin: 0; padding: 0;">
-                                    <input class="inputVers_02" id="inputVers_02" type="text" placeholder="Period for calculating correlation coefficients (Specify the number of bars)" style="height: 100%; width: 100%; color: white; background: darkred; border: none; font-size: 14px; font-family: cursive; padding-left: 1rem;">
-                                </div>
-                                
-                                <div class="btnSpreadVers unselectable" style="position: absolute; right: 0; top: 0; transform: translate(-3px, calc(100vh - 77px)); width: calc(70% - 8px); background: darkgreen; text-align: center; height: 40px; overflow: hidden;  margin: 0; padding: 0;">To build</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        -->
         <div class="resss">
             <h1><center>Resources:</center></h1>
-            <div><a href="https://www.cmegroup.com/market-data/daily-bulletin.html" target="_blank">Daily Bulletin on Option Trading CME</a></div>
+                <div><a href="https://invizzz.com" target="_blank">Official site Invizzz.com</a></div>
+                <div><center><b>***</b></center></div>
+                <div><a href="https://www.cmegroup.com/market-data/daily-bulletin.html" target="_blank">Daily Bulletin on Option Trading CME</a></div>
                 <div><a href="https://www.forexfactory.com/calendar" target="_blank">Economic calendar</a></div>
                 <div><a href="https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm" target="_blank">CFTC reports</a></div>
                 <div><a href="https://www1.oanda.com/lang/ru/forex-trading/analysis/forex-order-book" target="_blank">Forex order book from OANDA</a></div>

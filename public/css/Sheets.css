@@ -1,5 +1,3 @@
-/*--------------- СЛОИ ПЕРЕХОДОВ: ----------------------*/
-
 .multSheet{
     height: calc(100% - 30px);
     width: 100%;
@@ -9,17 +7,6 @@
     display: none;
 }
 
-/*
-.arbVersionsSheet{
-    height: calc(100% - 30px);
-    width: 100%;
-    background: black;
-    opacity: 80%;
-    overflow: hidden;
-    display: none;
-}
-*/
-
 .resss{
     height: calc(100% - 30px);
     width: 100%;
@@ -28,6 +15,10 @@
     overflow: hidden;
     display: none;
     text-align: center;
+    overflow: scroll;
+    font-family: serif;
+    font-size: 22px;
+    line-height: 1.8rem;
 }
 
 .resss a{
@@ -83,11 +74,11 @@
     width: 100%;
 }
 
-.tblSearch::-webkit-scrollbar, .tblSearch2::-webkit-scrollbar{
+.tblSearch::-webkit-scrollbar, .tblSearch2::-webkit-scrollbar, .resss::-webkit-scrollbar{
     width: 5px;
     background-color: black;
 }
-.tblSearch::-webkit-scrollbar-thumb, .tblSearch2::-webkit-scrollbar-thumb{
+.tblSearch::-webkit-scrollbar-thumb, .tblSearch2::-webkit-scrollbar-thumb, .resss::-webkit-scrollbar-thumb{
     background-color: red;
 }
 
