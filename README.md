@@ -31,7 +31,7 @@
 </ul>
 <p><b>For those who do not have Windows:</b></p>
 <ul>
-<li>1. Download and install the program for the node.</li>
+<li>1. Download this program. After Download and install "nodejs" in network of internet.</li>
 <li>2. Next, open the console and run the program for the node with the "server" parameter.</li>
 <li>3. Next, open your browser and write "localhost: 8080" and then click Enter.</li>
 </ul>
