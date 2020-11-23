@@ -35,7 +35,7 @@
     background: url("../img/icons/back_01_02.png") no-repeat center;
 }
 
-.A:hover, .screenShort:hover, .scrin:hover .Grab:hover, .hlevel:hover, .tglevel:hover, .vlevel:hover, .del1:hover, .text:hover, .rect:hover, .online:hover, .buy:hover, .sell:hover, .delall:hover, .Cross:hover, .optBtn:hover{
+.A:hover, .screenShort:hover, .scrin:hover, .Grab:hover, .hlevel:hover, .tglevel:hover, .vlevel:hover, .del1:hover, .text:hover, .rect:hover, .online:hover, .buy:hover, .sell:hover, .delall:hover, .Cross:hover, .optBtn:hover{
     cursor: pointer;
     background-color: blue;
 }
