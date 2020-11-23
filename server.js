@@ -92,19 +92,20 @@ function recurrentReading(n, max) {
             }
             if (!bf) {
                 resolve("ERROR");
+                return;
             }
 
             // Считываем файлы с историей по инструменту под индексом n:
             fs.readFile(tempAddr + "\\" + jsonObj.List[n] + ".txt", "utf8", (err, History) => {
                 if (err) {
-                    console.log("Error #6: " + err.message);
                     resolve("ELSE_TIME");
+                    return;
                 }
                 else {
                     fs.readFile(tempAddr + "\\current#" + jsonObj.List[n] + ".txt", "utf8", (err, zeroBar) => {
                         if (err) {
-                            console.log("Error #7: " + err.message);
                             resolve("ELSE_TIME");
+                            return;
                         }
                         else {
                             let temp = "";
@@ -269,6 +270,7 @@ function recurrentReading(n, max) {
                                 tempInst.currentBar[1].Close == null ||
                                 tempInst.currentBar[1].Time == null) {
                                 resolve("ERROR");
+                                return;
                             }
 
                             temp = "";
@@ -349,23 +351,25 @@ function recurrentReading(n, max) {
                                 }
                             }
 
-                            let hasNull = false;
-                            for (let m = 0; m < tempInst.history.length; ++m) {
-                                if (tempInst.history[m].Open == null ||
-                                    tempInst.history[m].High == null ||
-                                    tempInst.history[m].Low == null ||
-                                    tempInst.history[m].Close == null ||
-                                    tempInst.history[m].Time == null) {
+                            //let hasNull = false;
+                            //for (let m = 0; m < tempInst.history.length; ++m) {
+                            //    if (tempInst.history[m].Open == null ||
+                            //        tempInst.history[m].High == null ||
+                            //        tempInst.history[m].Low == null ||
+                            //        tempInst.history[m].Close == null ||
+                            //        tempInst.history[m].Time == null) {
 
-                                    hasNull = true;
-                                    break;
-                                }
-                            }
-                            if (hasNull) {
-                                resolve("ELSE_TIME");
-                            }
+                            //        hasNull = true;
+                            //        break;
+                            //    }
+                            //}
+                            //if (hasNull) {
+                            //    resolve("ELSE_TIME");
+                            //    return;
+                            //}
                             jsonObj.arr[n] = tempInst;
                             resolve(recurrentReading(n + 1, max));
+                            return;
                         }
                     });
                 }
@@ -373,6 +377,7 @@ function recurrentReading(n, max) {
         }
         else {
             resolve("FINISH");
+            return;
         }
     });
 }
@@ -403,12 +408,13 @@ function recurrentReadingZeroBars(n, max) {
             }
             if (!bf) {
                 resolve("ERROR");
+                return;
             }
 
             fs.readFile(tempAddr + "\\current#" + jsonObjZeroBars.List[n] + ".txt", "utf8", (err, zeroBar) => {
                 if (err) {
-                    console.log("Error #9: " + err.message);
                     resolve("ELSE_TIME");
+                    return;
                 }
                 else {
                     let temp = "";
@@ -574,15 +580,18 @@ function recurrentReadingZeroBars(n, max) {
                         tempInst.currentBar[1].Close == null ||
                         tempInst.currentBar[1].Time == null) {
                         resolve("ERROR");
+                        return;
                     }
 
                     jsonObjZeroBars.arr[n] = tempInst;
                     resolve(recurrentReadingZeroBars(n + 1, max));
+                    return;
                 }
             });
         }
         else {
             resolve("FINISH");
+            return;
         }
     });
 }
@@ -594,15 +603,18 @@ function recurrentWritingInOrderFiles(n, max, data) {
         if (n < max) {
             fs.writeFile(panArray[n].path_to_terminal + "\\Orders.txt", data, (err) => {
                 if (err) {
-                    resolve("ERROR");
+                    resolve("ELSE_TIME");
+                    return;
                 }
                 else {
                     resolve(recurrentWritingInOrderFiles(n + 1, max, data));
+                    return;
                 }
             });
         }
         else {
             resolve("FINISH");
+            return;
         }
     });
 }
@@ -709,14 +721,17 @@ function start_GUI() {
         }
     });
 
-    app.get("/setOrder", function (req, res) {
+    app.post("/setOrder", function (req, res) {
+        let orderRow = "";
         req.on("data", data => {
-            if (data) {
-                let _data = data.toString();
+            orderRow += data;
+        });
 
-                recurrentWritingInOrderFiles(0, panArray.length, _data).then(
+        req.once("end", () => {
+            if (orderRow) {
+                recurrentWritingInOrderFiles(0, panArray.length, orderRow).then(
                     resolve => {
-                        if (resolve == "ERROR") {
+                        if (resolve == "ELSE_TIME") {
                             res.send("false");
                         }
                         else if (resolve == "FINISH") {
@@ -747,12 +762,29 @@ function QuitThisServer() {
             process.exit(1); // Встроенный модуль process завершает работу сервера преждевременно.
         }
     });
+    console.log("Server is finished.");
 }
 
 // Функция рекурсивного считывания файлов List.txt по заданным путям:
-let tempPanArrayLength = 0;
+var try_qty = 0;
+var tempPanArrayLength = 0;
 function readingLists(index, maxIndex, arrPath) {
     return new Promise((resolve, reject) => {
+
+        if (index > maxIndex) {
+            if (tempList != List) {
+                Files_wasBeEqual = false;
+
+                // Перезаписываем файл List:
+                fs.writeFile("./Files/List.txt", tempList, () => {
+                    List = tempList;
+                });
+            }
+            panArrayLength = tempPanArrayLength;
+            tempPanArrayLength = 0;
+            resolve("FINISH");
+            return;
+        }
 
         fs.exists(arrPath[index] + "/List.txt", (bF) => {
             if (bF) {
@@ -770,37 +802,35 @@ function readingLists(index, maxIndex, arrPath) {
                                 nameInst += _data[i];
                             }
                             else {
-                                tempObj.instruments[innerIndexPanArray++] = nameInst;
-                                nameInst = "";
+                                if (nameInst != "") {
+                                    tempObj.instruments[innerIndexPanArray++] = nameInst;
+                                    nameInst = "";
+                                }
                             }
                         }
                         panArray[tempPanArrayLength++] = tempObj;
-                        //index++;
-
-                        if (index + 1 > maxIndex) {
-                            if (tempList != List) {
-                                Files_wasBeEqual = false;
-                                console.log("tempList != List !!!");
-
-                                // Перезаписываем файл List:
-                                fs.writeFile("./Files/List.txt", tempList, () => {
-                                    List = tempList;
-                                });
-                            }
-                            panArrayLength = tempPanArrayLength;
-                            tempPanArrayLength = 0;
-                            resolve("FINISH");
-                        }
-
-                        resolve(readingLists(index+1, maxIndex, arrPath));
+                        resolve(readingLists(index + 1, maxIndex, arrPath));
+                        return;
                     }
                     else {
-                        resolve("ERROR");
+                        //resolve("ERROR");
+                        if (try_qty < 10) {
+                            try_qty++;
+                            resolve(readingLists(index, maxIndex, arrPath));
+                            return;
+                        }
+                        else {
+                            try_qty = 0;
+                            resolve(readingLists(index + 1, maxIndex, arrPath));
+                            return;
+                        }
+                        
                     }
                 });
             }
             else {
                 resolve(readingLists(index + 1, maxIndex, arrPath));
+                return;
             }
         });
     });
@@ -809,15 +839,13 @@ function readingLists(index, maxIndex, arrPath) {
  
 fs.exists("./Files/Paths_to_Invizzz.txt", (bF) => { // Асинхронная проверка файла на предмет его существования... 
         if (!bF) { // Если файл не существует, то его необходимо создать и завершить работу сервера.
-            console.log("---    The /File/Paths_to_terminals.txt isn't exist (log #1)");
+            console.log("The /File/Paths_to_terminals.txt isn't exist");
             fs.writeFile("./Files/Paths_to_Invizzz.txt", "", (err) => {
                 if (err) {
-                    console.log("---    Error: Error of writing in the Paths_to_terminals.txt (log #2)");
-                    // Завершение работы сервера:
+                    console.log("Error: Error of writing in the Paths_to_terminals.txt");
                     QuitThisServer();
                 }
                 else {
-                    // Завершение работы сервера:
                     QuitThisServer();
                 }
             });
@@ -826,8 +854,7 @@ fs.exists("./Files/Paths_to_Invizzz.txt", (bF) => { // Асинхронная проверка файл
             // Считываем файл Paths_to_Invizzz.txt:
             fs.readFile("./Files/Paths_to_Invizzz.txt", "utf8", (err, datas) => {
                 if (err) {
-                    console.log("---    Error: Couldn't read the ./Files/Paths_to_Invizzz.txt (log #3)");
-                    // Завершение работы сервера:
+                    console.log("Error: Couldn't read the ./Files/Paths_to_Invizzz.txt");
                     QuitThisServer();
                 }
                 else {
@@ -850,18 +877,17 @@ fs.exists("./Files/Paths_to_Invizzz.txt", (bF) => { // Асинхронная проверка файл
                             }
                         }
                     }
-                    console.log(arrayPaths[0]);
-                    console.log(arrayPaths[1]);
-                        start_GUI(); // Запускаем сервер.
+                    start_GUI(); // Запускаем сервер.
+                    console.log("Server is running.");
 
                         setInterval(() => { // Таймер для перезаписи массива с инструментами List...
                             tempList = "";
+                            try_qty = 0;
+                            tempPanArrayLength = 0;
 
                             readingLists(0, arrayPaths.length - 1, arrayPaths).then(
                                 resolve => {
-                                    if (resolve == "FINISH") {
-                                        console.log("Reading successful...");
-                                    }
+                                    if (resolve == "FINISH") {}
                                     else if(resolve == "ERROR") { // resolve == ERROR
                                         console.log("ERROR: In the readingLists function...");
                                         QuitThisServer();

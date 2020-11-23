@@ -285,7 +285,7 @@ $(".multSheet div div div .tblSearch").on("click", ".instruments", (event)=>{
         }
     }
     if(!found){
-        let prepereEl = "<div class='instrumentsAddedMult unselectable " + instrumentN + "' style='margin-bottom: 1rem; font-size: 14px; width: calc(100% - 3rem); height: 3rem;'>" + instrumentN + "<div style='height: 1rem; margin-top: 0; width: 100%;'><input id='multLineEdit_" + currentMultInstrumentsIndex.toString() + "' class='multLineEdit' placeholder='Введите стоимость тика...'></div></div>";
+        let prepereEl = "<div class='instrumentsAddedMult unselectable " + instrumentN + "' style='margin-bottom: 1rem; font-size: 14px; width: calc(100% - 3rem); height: 3rem;'>" + instrumentN + "<div style='height: 1rem; margin-top: 0; width: 100%;'><input id='multLineEdit_" + currentMultInstrumentsIndex.toString() + "' class='multLineEdit' placeholder='Введите стоимость тика...' value='1.0'></div></div>";
         $(".tblSearch2").append(prepereEl);
         currentMultInstruments[currentMultInstrumentsIndex++] = instrumentN;
     }
@@ -579,6 +579,7 @@ $(".noOn").click(function(){
     if($(".multSheet div div div .tblSearch").children().length >= 2){
         if(OKNO == 1){
             OKNO = 2;
+            
             $(".yesOn").css("background", "darkred");
         }
         else{} // == 2
@@ -651,6 +652,14 @@ $(".arbOnlineSheet .btnSpreadOnline").click(function(){
         let koef_01 = $(".arbOnlineSheet .inputOnline_01").val();
         let koef_02 = $(".arbOnlineSheet .inputOnline_02").val();
         
+        if($(".arbOnlineSheet .inputOnline_01").val() == ""){
+            koef_01 = 1.0;
+        }
+        if($(".arbOnlineSheet .inputOnline_02").val() == ""){
+            koef_02 = 1.0;
+        }
+        
+        let OKO = OKNO;
         $(".comeback").click();
         
         $(".screenShort").css("width", "6.24%");
@@ -671,7 +680,7 @@ $(".arbOnlineSheet .btnSpreadOnline").click(function(){
         $(".buy").css("display", "block");
         $(".sell").css("display", "block");
         
-        if(OKNO == 1){
+        if(OKO == 1){
            BUILD_ONLINE(instrName_01, instrName_02, koef_01, koef_02, 1);
         }
         else{
@@ -696,7 +705,7 @@ $(".arbOfflineSheet .btnSpreadOffline").click(function(){
         if($(".arbOfflineSheet .inputOffline_02").val() == ""){
             koef_02 = 1.0;
         }
-        
+        let OKO = OKNO;
         $(".comeback").click();
         
         $(".screenShort").css("width", "6.24%");
@@ -717,7 +726,7 @@ $(".arbOfflineSheet .btnSpreadOffline").click(function(){
         $(".buy").css("display", "block");
         $(".sell").css("display", "block");
         
-        if(OKNO == 1){
+        if(OKO == 1){
            BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, 1);
         }
         else{
