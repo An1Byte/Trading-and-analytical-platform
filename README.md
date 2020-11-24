@@ -7,11 +7,15 @@
 <p><a href="https://ibb.co/q7mBqY6"><img height="600" width="600" src="https://i.ibb.co/q7mBqY6/111.png" alt="111" border="0"></a></p>
 <br>
 <p><b>Construction of multicurrency charts without restrictions on the number of charts:</b></p>
-<p><a href="https://ibb.co/Wnpvbcg"><img height="600" width="600" src="https://i.ibb.co/Wnpvbcg/222-1.png" alt="222-1" border="0"></a></p>
+<p><a href="https://ibb.co/3RC8H65"><img height="600" width="600" src="https://i.ibb.co/3RC8H65/3.png" alt="3" border="0"></a> </p>
+<br>
+<p><a href="https://ibb.co/xFcjcHg"><img height="600" width="600" src="https://i.ibb.co/xFcjcHg/4.png" alt="4" border="0"></a></p>
 <br>
 <p><b>Building synthetics from any two instruments:</b></p>
-<p><a href="https://ibb.co/RBCbjN1"><img height="600" width="600" src="https://i.ibb.co/RBCbjN1/333.png" alt="333" border="0"></a></p>
-
+<p><a href="https://ibb.co/h8sG9c7"><img height="600" width="600" src="https://i.ibb.co/h8sG9c7/1.png" alt="1" border="0"></a></p>
+<br>
+<p><a href="https://ibb.co/zhjjTRq"><img height="600" width="600" src="https://i.ibb.co/zhjjTRq/2.png" alt="2" border="0"></a></p>
+<br>
 <h3>How modules and programs work:</h3>
 <p>The application works in conjunction with a trading terminal or terminals (if there are many of them). Accepts input data from the trading terminal and works with them. As a data transmitter, trading experts are used, the essence of which is quite simple - organize and print data into text files so that the main program can read and use them. This makes the main program independent from the trading platform. Anyone who is willing to spend a little time learning a third-party API can write such modules without having to be a programer. We cannot write many modules at once, because in most cases, data can be provided by a broker only if there is a brokerage account. For this reason, we have implemented the connector only for the most popular terminals, which can be accessed for free, namely MT4 and MT5.</p>
 
@@ -53,3 +57,5 @@ After installing the application, turn on your trading terminal or terminals, if
 <br>
 <h3>Small parting words:</h3>
 <p><i>We can say that this is an introductory program for introducing you to arbitrage and pair trading, in order to understand which synthetics you can work with and which you cannot. If this program is quite suitable for pair trading, then for arbitrage trading it is not competitive with other bots. For this purpose, a high-speed robot will be written separately in C ++. Although this program can still be slightly accelerated by decreasing the set interval parameters in the code, you should not greatly underestimate them, and I do not advise you to do this.</i></p>
+<br>
+<p><i>This program contains many non-critical bugs, which I have no time to fix. If you see that the program is giving incorrect results, then just restart it. A lot of bugs can show up when you switch from one mode to another, so restarting the program cures that. Also, the program may not work correctly if the tab with the program is not active or the browser itself is in a minimized state ...</i></p>
