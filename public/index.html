@@ -36,10 +36,11 @@ forex volumes"/>
        <br>
        <p style="color: red; font-size: 16px"><b>Options of SMA:</b></p>
        <p style="color: gray;"><i>Trading with the activated automatic trading mode will be carried out from far levels to the opposite of the near arithmetic mean. It is legal to superimpose far and near levels on top of each other, so just vary the percentages in the fields below to get the desired result.</i></p>
-       <p><label for="inputSMACheck">To build the next charts with SMA:</label><input style="background: chartreuse; margin-left: 1rem;" id="inputSMACheck" type="checkbox" checked></p>
-       <p><label for="inputPeriodSMA">Enter the period of SMA:</label></p><p><input id="inputPeriodSMA" style="background: chartreuse;" type="text" value="50"></p>
-       <p><label for="inputPirsent_01" title="The percentage is calculated relative to the arithmetic average volatility for the previous N bars. (Valid values are from 0 to 100) (N equel SMA period)">Enter the percentage for the first level parallel lines:</label></p><p><input id="inputPirsent_01" style="background: chartreuse;" type="text" value="35"></p>
-       <p><label for="inputPirsent_02" title="The percentage is calculated relative to the arithmetic average volatility for the previous N bars. (Valid values are from 0 to 100)  (N equel SMA period)">Enter the percentage for the second level parallel lines:</label></p><p><input id="inputPirsent_02" style="background: chartreuse;" type="text" value="70"></p>
+       <p><label>To build the next charts with MA:</label><input style="background: chartreuse; margin-left: 1rem;" id="inputSMACheck" type="radio" checked>Bolinger analog <input style="background: chartreuse; margin-left: 1rem;" id="inputSMACheck2" type="radio">AVG <input style="background: chartreuse; margin-left: 1rem;" id="inputSMACheck3" type="radio">NONE</p>
+       <p><label for="inputPeriodSMA">Enter the period of SMA:</label></p>
+       <p><input id="inputPeriodSMA" style="background: chartreuse;" type="text" value="50"></p>
+       <p><label for="inputPirsent_01" title="The percentage is calculated relative to the arithmetic average volatility for the previous N bars. (Valid values are from 0 to 100) (N equel SMA period)">Enter the percentage for the first level parallel lines:</label></p><p><input id="inputPirsent_01" style="background: chartreuse;" type="text" value="15"></p>
+       <p><label for="inputPirsent_02" title="The percentage is calculated relative to the arithmetic average volatility for the previous N bars. (Valid values are from 0 to 100)  (N equel SMA period)">Enter the percentage for the second level parallel lines:</label></p><p><input id="inputPirsent_02" style="background: chartreuse;" type="text" value="40"></p>
        <hr>
        <div id="accept_cancel">
            <div id="ACCEPT"><p>ACCEPT</p></div>

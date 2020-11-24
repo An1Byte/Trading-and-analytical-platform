@@ -1,4 +1,5 @@
 var __isSMA = null;
+var sma_type = 1;
 var AutomaticTradingInterval = null;
 
 var needUpdate = false;
@@ -360,6 +361,7 @@ function BUILD_ONLINE(instrName_01, instrName_02, koef_01, koef_02, divide){
     __isSMA = isSMA;
     period_SMA = $("#inputPeriodSMA").val();
     
+    firstRun++;
     whatIsR = "BUILD_ONLINE";
     
     if(divide == 1){
@@ -607,42 +609,69 @@ function BUILD_ONLINE(instrName_01, instrName_02, koef_01, koef_02, divide){
         
         if (__isSMA) {
             if (data[0].x.length > period_SMA && data[0].x.length - 2 >= 0) {
-                smaHasLines = true;
-                let AVG = 0.0;
-                let counter = 0;
-                let _MAX_ = -1e10;
-                let _MIN_ = 1e10;
+                if(sma_type == 1){
+                    smaHasLines = true;
+                    let AVG = 0.0;
+                    let counter = 0;
+                    let _MAX_ = -1e10;
+                    let _MIN_ = 1e10;
 
-                for (let i = data[0].x.length - 2; i >= data[0].x.length - 1 - period_SMA; --i) {
+                    for (let i = data[0].x.length - 2; i >= data[0].x.length - 1 - period_SMA; --i) {
 
-                    if (data[0].high[i] > _MAX_) {
-                        _MAX_ = data[0].high[i];
+                        if (data[0].high[i] > _MAX_) {
+                            _MAX_ = data[0].high[i];
+                        }
+                        if (data[0].low[i] < _MIN_) {
+                            _MIN_ = data[0].low[i];
+                        }
+                        counter++
+                        AVG += (data[0].high[i] - data[0].low[i])/2.0;
                     }
-                    if (data[0].low[i] < _MIN_) {
-                        _MIN_ = data[0].low[i];
-                    }
-                    counter++
-                    AVG += (data[0].high[i] - data[0].low[i])/2.0;
+
+                    AVG /= counter;
+                    let _HIGH_ = _MAX_ - _MIN_;
+
+                    data[1].x.push(data[0].x[data[0].x.length - 1]);
+                    data[2].x.push(data[0].x[data[0].x.length - 1]);
+                    data[3].x.push(data[0].x[data[0].x.length - 1]);
+                    data[4].x.push(data[0].x[data[0].x.length - 1]);
+                    data[5].x.push(data[0].x[data[0].x.length - 1]);
+
+                    data[1].y.push(Number(AVG) + Number(_HIGH_) * Number(pircent_02) / 100);
+                    data[2].y.push(Number(AVG) + Number(_HIGH_) * Number(pircent_01) / 100);
+
+                    data[3].y.push(Number(AVG));
+
+                    data[4].y.push(Number(AVG) - Number(_HIGH_) * Number(pircent_01) / 100);
+                    data[5].y.push(Number(AVG) - Number(_HIGH_) * Number(pircent_02) / 100);
                 }
-                
-                AVG /= counter;
-                let _HIGH_ = _MAX_ - _MIN_;
+                else if(sma_type == 2){
+                    smaHasLines = true;
+                    let AVG = 0.0;
+                    let counter = 0;
 
-                data[1].x.push(data[0].x[data[0].x.length - 1]);
-                data[2].x.push(data[0].x[data[0].x.length - 1]);
-                data[3].x.push(data[0].x[data[0].x.length - 1]);
-                data[4].x.push(data[0].x[data[0].x.length - 1]);
-                data[5].x.push(data[0].x[data[0].x.length - 1]);
+                    for (let i = data[0].x.length - 2; i >= data[0].x.length - 1 - period_SMA; --i) {
+                        counter++
+                        AVG += (data[0].high[i] - data[0].low[i])/2.0;
+                    }
 
-                data[1].y.push(AVG + _HIGH_ * pircent_02 / 100);
-                data[2].y.push(AVG + _HIGH_ * pircent_01 / 100);
+                    AVG /= counter;
 
-                data[3].y.push(AVG);
+                    data[1].x.push(data[0].x[data[0].x.length - 1]);
+                    data[2].x.push(data[0].x[data[0].x.length - 1]);
+                    data[3].x.push(data[0].x[data[0].x.length - 1]);
+                    data[4].x.push(data[0].x[data[0].x.length - 1]);
+                    data[5].x.push(data[0].x[data[0].x.length - 1]);
 
-                data[4].y.push(AVG - _HIGH_ * pircent_01 / 100);
-                data[5].y.push(AVG - _HIGH_ * pircent_02 / 100);
+                    data[1].y.push(Number(AVG) + Number(_HIGH_) * Number(pircent_02));
+                    data[2].y.push(Number(AVG) + Number(_HIGH_) * Number(pircent_01));
+
+                    data[3].y.push(Number(AVG));
+
+                    data[4].y.push(Number(AVG) - Number(pircent_01));
+                    data[5].y.push(Number(AVG) - Number(pircent_02));
+                }
             }
-
         }
         addinLevelsCORRELOnline(layout.shapes, layout.annotations);
         needUpdate = false;
@@ -748,18 +777,17 @@ function BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, divide){
     __arrayNames = arrayNames;
     epcilon = 0;
     isActiveChart = true;
-    
     for (let j = 0; j < globalArray.length; ++j) {
         if (globalArray[j].name == arrayNames[0]) {
-            GLOBAL[GLOBALLength] = globalArray[j];
-            LASTBID[GLOBALLength] = GLOBAL[GLOBALLength].currentBar[0].Bid;
-            LASTTIME[GLOBALLength] = GLOBAL[GLOBALLength].currentBar[0].Time;
+            GLOBAL[0] = globalArray[j];
+            LASTBID[0] = GLOBAL[0].currentBar[0].Bid;
+            LASTTIME[0] = GLOBAL[0].currentBar[0].Time;
             GLOBALLength++;
         }
         if (globalArray[j].name == arrayNames[1]) {
-            GLOBAL[GLOBALLength] = globalArray[j];
-            LASTBID[GLOBALLength] = GLOBAL[GLOBALLength].currentBar[0].Bid;
-            LASTTIME[GLOBALLength] = GLOBAL[GLOBALLength].currentBar[0].Time;
+            GLOBAL[1] = globalArray[j];
+            LASTBID[1] = GLOBAL[1].currentBar[0].Bid;
+            LASTTIME[1] = GLOBAL[1].currentBar[0].Time;
             GLOBALLength++;
         }
     }
@@ -904,7 +932,7 @@ function BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, divide){
         if(bfl){
             if(!fff){
                 fff = true;
-                constDiff = (GLOBAL[0].history[m].Close * arrPriceOfTicks[0] * KOEFS[0] / GLOBAL[0].tick)-(GLOBAL[1].history[m].Close * arrPriceOfTicks[1] * KOEFS[1] / GLOBAL[1].tick);
+                constDiff = (GLOBAL[0].history[m].Close * arrPriceOfTicks[0] * KOEFS[0] / GLOBAL[0].tick)-(GLOBAL[1].history[mm].Close * arrPriceOfTicks[1] * KOEFS[1] / GLOBAL[1].tick);
             }
             
 //            if(n > 0 && m > 0 && GLOBAL[0].history[m].Time == GLOBAL[0].history[m-1].Time){
@@ -927,8 +955,6 @@ function BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, divide){
         }
     }
     
-    
-    
     if(firstRun > 0){
         trace.y.pop();
         trace.time.pop();
@@ -936,7 +962,7 @@ function BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, divide){
         timeCounter--;
     }
     
-        trace.y.push((GLOBAL[0].currentBar[0].Close * arrPriceOfTicks[0] * KOEFS[0] / GLOBAL[0].tick)-(GLOBAL[1].currentBar[1].Close * arrPriceOfTicks[1] * KOEFS[1] / GLOBAL[1].tick) - constDiff);
+        trace.y.push((GLOBAL[0].currentBar[0].Close * arrPriceOfTicks[0] * KOEFS[0] / GLOBAL[0].tick)-(GLOBAL[1].currentBar[0].Close * arrPriceOfTicks[1] * KOEFS[1] / GLOBAL[1].tick) - constDiff);
         trace.time.push(GLOBAL[0].currentBar[0].Time);
         trace.x.push(timeCounter++);
 
@@ -998,38 +1024,66 @@ function BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, divide){
         
         
         if(trace.x.length > period_SMA){
-            
-            for(let i=period_SMA; i < trace.x.length; ++i){
+            if(sma_type == 1){
+                for(let i=period_SMA; i < trace.x.length; ++i){
                 
-                let AVG = 0.0;
-                let counter = 0;
-                let _MAX_ = -1e10;
-                let _MIN_ = 1e10;
-                
-                for(let j=i-period_SMA; j <= i; ++j){
-                    if(trace.y[j] > _MAX_){_MAX_ = trace.y[j];}
-                    if(trace.y[j] < _MIN_){_MIN_ = trace.y[j];}
-                    
-                    AVG += trace.y[j];
-                    counter++;
-                } AVG /= counter;
-                let _HIGH_ = _MAX_ - _MIN_;
-                traceSMA[0].x.push(trace.x[i]);
-                traceSMA[1].x.push(trace.x[i]);
-                traceSMA[2].x.push(trace.x[i]);
-                traceSMA[3].x.push(trace.x[i]);
-                traceSMA[4].x.push(trace.x[i]);
-                
-                traceSMA[0].y.push(AVG + _HIGH_*pircent_02/100);
-                traceSMA[1].y.push(AVG + _HIGH_*pircent_01/100);
-                
-                traceSMA[2].y.push(AVG);
-                
-                traceSMA[3].y.push(AVG - _HIGH_*pircent_01/100);
-                traceSMA[4].y.push(AVG - _HIGH_*pircent_02/100);
+                    let AVG = 0.0;
+                    let counter = 0;
+                    let _MAX_ = -1e10;
+                    let _MIN_ = 1e10;
 
+                    for(let j=i-period_SMA; j <= i; ++j){
+                        if(trace.y[j] > _MAX_){_MAX_ = trace.y[j];}
+                        if(trace.y[j] < _MIN_){_MIN_ = trace.y[j];}
+
+                        AVG += trace.y[j];
+                        counter++;
+                    } AVG /= counter;
+                    let _HIGH_ = _MAX_ - _MIN_;
+                    traceSMA[0].x.push(trace.x[i]);
+                    traceSMA[1].x.push(trace.x[i]);
+                    traceSMA[2].x.push(trace.x[i]);
+                    traceSMA[3].x.push(trace.x[i]);
+                    traceSMA[4].x.push(trace.x[i]);
+
+                    traceSMA[0].y.push(Number(AVG) + Number(_HIGH_)*Number(pircent_02)/100);
+                    traceSMA[1].y.push(Number(AVG) + Number(_HIGH_)*Number(pircent_01)/100);
+
+                    traceSMA[2].y.push(Number(AVG));
+
+                    traceSMA[3].y.push(Number(AVG) - Number(_HIGH_)*Number(pircent_01)/100);
+                    traceSMA[4].y.push(Number(AVG) - Number(_HIGH_)*Number(pircent_02)/100);
+
+                }
             }
-            
+            else if(sma_type == 2){
+                for(let i=period_SMA; i < trace.x.length; ++i){
+                
+                    let AVG = 0.0;
+                    let counter = 0;
+
+                    for(let j=i-period_SMA; j <= i; ++j){
+
+                        AVG += trace.y[j];
+                        counter++;
+                    } AVG /= counter;
+
+                    traceSMA[0].x.push(trace.x[i]);
+                    traceSMA[1].x.push(trace.x[i]);
+                    traceSMA[2].x.push(trace.x[i]);
+                    traceSMA[3].x.push(trace.x[i]);
+                    traceSMA[4].x.push(trace.x[i]);
+
+                    traceSMA[0].y.push((Number(AVG) + Number(pircent_02)));
+                    traceSMA[1].y.push((Number(AVG) + Number(pircent_01)));
+                    
+                    traceSMA[2].y.push(Number(AVG));
+
+                    traceSMA[3].y.push((Number(AVG) - Number(pircent_01)));
+                    traceSMA[4].y.push((Number(AVG) - Number(pircent_02)));
+
+                }
+            }
         }
         
         data = [trace, traceSMA[0], traceSMA[1], traceSMA[2], traceSMA[3], traceSMA[4]];
@@ -1205,39 +1259,63 @@ function BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, divide){
 
                             if (__isSMA) {
                                 if (data[0].x.length > period_SMA) {
+                                    if(sma_type == 1){
+                                        let AVG = 0.0;
+                                        let counter = 0;
+                                        let _MAX_ = -1e10;
+                                        let _MIN_ = 1e10;
 
-                                    let AVG = 0.0;
-                                    let counter = 0;
-                                    let _MAX_ = -1e10;
-                                    let _MIN_ = 1e10;
+                                        for (let i = data[0].x.length - 2; i >= data[0].x.length - 2 - period_SMA; --i) {
 
-                                    for (let i = data[0].x.length - 2; i >= data[0].x.length - 2 - period_SMA; --i) {
+                                            if (trace.y[i] > _MAX_) {
+                                                _MAX_ = trace.y[i];
+                                            }
+                                            if (trace.y[i] < _MIN_) {
+                                                _MIN_ = trace.y[i];
+                                            }
+                                            counter++
+                                            AVG += data[0].y[i];
+                                        }AVG /= counter;
 
-                                        if (trace.y[i] > _MAX_) {
-                                            _MAX_ = trace.y[i];
-                                        }
-                                        if (trace.y[i] < _MIN_) {
-                                            _MIN_ = trace.y[i];
-                                        }
-                                        counter++
-                                        AVG += data[0].y[i];
-                                    }AVG /= counter;
-                                    
-                                    let _HIGH_ = _MAX_ - _MIN_;
+                                        let _HIGH_ = _MAX_ - _MIN_;
 
-                                    data[1].x.push(data[0].x[data[0].x.length - 1]);
-                                    data[2].x.push(data[0].x[data[0].x.length - 1]);
-                                    data[3].x.push(data[0].x[data[0].x.length - 1]);
-                                    data[4].x.push(data[0].x[data[0].x.length - 1]);
-                                    data[5].x.push(data[0].x[data[0].x.length - 1]);
+                                        data[1].x.push(data[0].x[data[0].x.length - 1]);
+                                        data[2].x.push(data[0].x[data[0].x.length - 1]);
+                                        data[3].x.push(data[0].x[data[0].x.length - 1]);
+                                        data[4].x.push(data[0].x[data[0].x.length - 1]);
+                                        data[5].x.push(data[0].x[data[0].x.length - 1]);
 
-                                    data[1].y.push(AVG + _HIGH_ * pircent_02/100);
-                                    data[2].y.push(AVG + _HIGH_ * pircent_01/100);
+                                        data[1].y.push(Number(AVG) + Number(_HIGH_) * Number(pircent_02)/100);
+                                        data[2].y.push(Number(AVG) + Number(_HIGH_) * Number(pircent_01)/100);
 
-                                    data[3].y.push(AVG);
+                                        data[3].y.push(Number(AVG));
 
-                                    data[4].y.push(AVG - _HIGH_ * pircent_01/100);
-                                    data[5].y.push(AVG - _HIGH_ * pircent_02/100);
+                                        data[4].y.push(Number(AVG) - Number(_HIGH_) * Number(pircent_01)/100);
+                                        data[5].y.push(Number(AVG) - Number(_HIGH_) * Number(pircent_02)/100);
+                                    }
+                                    else if(sma_type == 2){
+                                        let AVG = 0.0;
+                                        let counter = 0;
+
+                                        for (let i = data[0].x.length - 2; i >= data[0].x.length - 2 - period_SMA; --i) {
+                                            counter++
+                                            AVG += data[0].y[i];
+                                        }AVG /= counter;
+
+                                        data[1].x.push(data[0].x[data[0].x.length - 1]);
+                                        data[2].x.push(data[0].x[data[0].x.length - 1]);
+                                        data[3].x.push(data[0].x[data[0].x.length - 1]);
+                                        data[4].x.push(data[0].x[data[0].x.length - 1]);
+                                        data[5].x.push(data[0].x[data[0].x.length - 1]);
+
+                                        data[1].y.push(Number(AVG) + Number(pircent_02));
+                                        data[2].y.push(Number(AVG) + Number(pircent_01));
+
+                                        data[3].y.push(Number(AVG));
+
+                                        data[4].y.push(Number(AVG) - Number(pircent_01));
+                                        data[5].y.push(Number(AVG) - Number(pircent_02));
+                                    }
                                 }
 
                             }
@@ -1270,9 +1348,11 @@ function BUILD_OFFLINE(instrName_01, instrName_02, koef_01, koef_02, divide){
                 }
             }
         }
-
-        layout.shapes[0].y0 = ((GLOBAL[0].currentBar[0].Bid * arrPriceOfTicks[0] * KOEFS[0] / GLOBAL[0].tick) - (GLOBAL[1].currentBar[0].Bid * arrPriceOfTicks[1] * KOEFS[1] / GLOBAL[1].tick) - constDiff);
-        layout.shapes[0].y1 = ((GLOBAL[0].currentBar[0].Bid * arrPriceOfTicks[0] * KOEFS[0] / GLOBAL[0].tick) - (GLOBAL[1].currentBar[0].Bid * arrPriceOfTicks[1] * KOEFS[1] / GLOBAL[1].tick) - constDiff);
+        
+        if(layout.shapes.length > 0){
+            layout.shapes[0].y0 = ((GLOBAL[0].currentBar[0].Bid * arrPriceOfTicks[0] * KOEFS[0] / GLOBAL[0].tick) - (GLOBAL[1].currentBar[0].Bid * arrPriceOfTicks[1] * KOEFS[1] / GLOBAL[1].tick) - constDiff);
+            layout.shapes[0].y1 = ((GLOBAL[0].currentBar[0].Bid * arrPriceOfTicks[0] * KOEFS[0] / GLOBAL[0].tick) - (GLOBAL[1].currentBar[0].Bid * arrPriceOfTicks[1] * KOEFS[1] / GLOBAL[1].tick) - constDiff);
+        }
         data[0].y[data[0].y.length - 1] = ((GLOBAL[0].currentBar[0].Close * arrPriceOfTicks[0] * KOEFS[0] / GLOBAL[0].tick) - (GLOBAL[1].currentBar[0].Close * arrPriceOfTicks[1] * KOEFS[1] / GLOBAL[1].tick) - constDiff);
         data[0].time[data[0].time.length - 1] = GLOBAL[0].currentBar[0].Time;
         data[0].x[data[0].x.length - 1] = data[0].x.length;
@@ -1351,7 +1431,42 @@ function BUILD_MULT(arrayNames, arrPriceOfTicks, comeBack){
         // ПРИВЕДЕНИЕ ГРАФИКОВ К "ОБЩЕМУ ЗНАМЕНАТЕЛЮ":
         let result = []; // Общее время для всех чартов
         let dualSize = 0; // Общая длина для всех чартов.
-
+        let his = [];
+        for(let i=0; i < GLOBALLength; ++i){
+            his[i] = [];
+        }
+        for(let i=0; i < GLOBALLength; ++i){
+            for(let j=0; j < GLOBAL[i].history.length-1; ++j){
+                if(GLOBAL[i].history[j].Time == GLOBAL[i].history[j+1].Time){
+                    continue;
+                }
+                else{
+                    let next = new OHLCTime();
+                    next.Open = GLOBAL[i].history[j].Open;
+                    next.High = GLOBAL[i].history[j].High;
+                    next.Low = GLOBAL[i].history[j].Low;
+                    next.Close = GLOBAL[i].history[j].Close;
+                    next.Time = GLOBAL[i].history[j].Time;
+                    his[i].push(next);
+                    if(j == GLOBAL[i].history.length-2){
+                        let nextP = new OHLCTime();
+                        nextP.Open = GLOBAL[i].history[j+1].Open;
+                        nextP.High = GLOBAL[i].history[j+1].High;
+                        nextP.Low = GLOBAL[i].history[j+1].Low;
+                        nextP.Close = GLOBAL[i].history[j+1].Close;
+                        nextP.Time = GLOBAL[i].history[j+1].Time;
+                        his[i].push(nextP);
+                    }
+                }
+            }
+        }
+        for(let i=0; i < GLOBALLength; ++i){
+            GLOBAL[i].history = his[i];
+            his[i] = [];
+        }
+        
+        
+        
         let minIndex = 0;
         for(let i=0; i < GLOBAL.length; ++i){
             if(GLOBAL[i].history.length < GLOBAL[minIndex].history.length){
@@ -1417,21 +1532,10 @@ function BUILD_MULT(arrayNames, arrPriceOfTicks, comeBack){
             };
 
             for(let j=0; j < GLOBAL[i].history.length; ++j){
-                let bfl = false;
+                //let bfl = false;
                 for(let n=0; n < result.length; ++n){
                     if(GLOBAL[i].history[j].Time == result[n]){
-                        bfl = true;
-                        break;
-                    }
-                }
-                if(bfl){
-                    if(j > 0 && GLOBAL[i].history[j].Time == GLOBAL[i].history[j-1].Time){
-                        trace.open[trace.open.length-1] = GLOBAL[i].history[j].Open * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick;
-                        trace.high[trace.high.length-1] = GLOBAL[i].history[j].High * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick;
-                        trace.low[trace.low.length-1] = GLOBAL[i].history[j].Low * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick;
-                        trace.close[trace.close.length-1] = GLOBAL[i].history[j].Close * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick;
-                    }
-                    else{
+                        //bfl = true;
                         trace.open.push(GLOBAL[i].history[j].Open * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick);
                         trace.high.push(GLOBAL[i].history[j].High * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick);
                         trace.low.push(GLOBAL[i].history[j].Low * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick);
@@ -1439,6 +1543,7 @@ function BUILD_MULT(arrayNames, arrPriceOfTicks, comeBack){
                         trace.time.push(GLOBAL[i].history[j].Time);
                         trace.x.push(timeCounter);
                         GLOBAL[i].history[j].x = timeCounter++;
+                        break;
                     }
                 }
             }
@@ -1458,14 +1563,13 @@ function BUILD_MULT(arrayNames, arrPriceOfTicks, comeBack){
                         trace.low.push(GLOBAL[i].currentBar[0].Low * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick);
                         trace.close.push(GLOBAL[i].currentBar[0].Close * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick);
                         trace.time.push(GLOBAL[i].currentBar[0].Time);
-                        trace.x.push(++timeCounter);
+                        trace.x.push(timeCounter++);
             
-            firstRun++;
                     
 
             data[i] = trace;
         }
-
+        firstRun++;
         let tempTitR = "<br><b>Current" + data[0].name + "spread:</b> " + (GLOBAL[0].currentBar[0].Ask - GLOBAL[0].currentBar[0].Bid);
         let tempTitle = "<i><b>" + (arrayNames.length-1).toString() + ".0</b> * " + arrayNames[0];
         for(let i=1; i < arrayNames.length; ++i){
@@ -1609,13 +1713,13 @@ function BUILD_MULT(arrayNames, arrPriceOfTicks, comeBack){
 
                                 GLOBAL[i].history.push(newB);
                                 
-                                let score = 0;
-                                for(let rrr = 0; rrr < GLOBAL.length; ++rrr){
-                                    if(GLOBAL[rrr].history[GLOBAL[rrr].history.length-1] == tempTime){
-                                        score++;
-                                    }
-                                }
-                                if(score == GLOBAL.length){
+//                                let score = 0;
+//                                for(let rrr = 0; rrr < GLOBAL.length; ++rrr){
+//                                    if(GLOBAL[rrr].history[GLOBAL[rrr].history.length-1] == tempTime){
+//                                        score++;
+//                                    }
+//                                }
+//                                if(score == GLOBAL.length){
                                     // Корректировка последнего сформированного бара:
                                     data[i].open[data[i].open.length-1] = GLOBAL[i].history[GLOBAL[i].history.length - 2].Open * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick;
                                     data[i].high[data[i].high.length-1] = GLOBAL[i].history[GLOBAL[i].history.length - 2].High * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick;
@@ -1623,7 +1727,7 @@ function BUILD_MULT(arrayNames, arrPriceOfTicks, comeBack){
                                     data[i].close[data[i].close.length-1] = GLOBAL[i].history[GLOBAL[i].history.length - 2].Close * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick;
                                     // ----------------
 
-                                }
+                                //}
                                 
 
                                 data[i].open.push(GLOBAL[i].history[GLOBAL[i].history.length - 1].Open * arrPriceOfTicks[i] * KOEFS[i] / GLOBAL[i].tick);
@@ -2851,6 +2955,22 @@ $("#CANCEL").on("click", () => {
     }, 0);
 });
 
+$("#inputSMACheck").on("click", ()=>{
+    $("#inputSMACheck").prop("checked");
+    $("#inputSMACheck2").prop("checked", false);
+    $("#inputSMACheck3").prop("checked", false);
+});
+$("#inputSMACheck2").on("click", ()=>{
+    $("#inputSMACheck2").prop("checked");
+    $("#inputSMACheck").prop("checked", false);
+    $("#inputSMACheck3").prop("checked", false);
+});
+$("#inputSMACheck3").on("click", ()=>{
+    $("#inputSMACheck3").prop("checked");
+    $("#inputSMACheck2").prop("checked", false);
+    $("#inputSMACheck").prop("checked", false);
+});
+
 $("#ACCEPT").on("click", () => {
     setTimeout(()=>{
         isPressedOptBtn = false;
@@ -2862,7 +2982,13 @@ $("#ACCEPT").on("click", () => {
         period_SMA = $("#inputPeriodSMA").val();
         pircent_01 = $("#inputPirsent_01").val();
         pircent_02 = $("#inputPirsent_02").val();
-        isSMA = $("#inputSMACheck").prop('checked');
+        isSMA = ($("#inputSMACheck").prop('checked'))?true:($("#inputSMACheck2").prop('checked'))?true:false;
+        if(isSMA){
+            sma_type = ($("#inputSMACheck").prop('checked'))?1:($("#inputSMACheck2").prop('checked'))?2:null;
+        }
+        else{
+            sma_type = null;
+        }
 
         let regularInput = new RegExp("^[0-9]+[\.,]?[0-9]*$");
         if(regularInput.test(lot_01) &&
